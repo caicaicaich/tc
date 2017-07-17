@@ -35,8 +35,14 @@
     self.cancelRequestSearchCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [RACSignal empty];
     }];
-    
-    
+  
+    self.requestSearchCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+      @strongify(self)
+      SearchNetRequestBean *searchNetRequestBean = [[SearchNetRequestBean alloc] initWithName:self.name pageNo:self.pageNO pageSize:20 longitude:self.longitude latitude:self.latitude];
+      
+      return [[[[AppNetworkEngineSingleton sharedInstance] signalForNetRequestDomainBean:searchNetRequestBean] materialize] takeUntil:self.cancelRequestSearchCommand.executionSignals];
+      
+    }];
 }
 
 
