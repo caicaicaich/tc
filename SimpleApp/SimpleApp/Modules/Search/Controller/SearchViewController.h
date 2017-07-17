@@ -10,4 +10,10 @@
 
 @interface SearchViewController : UIViewController
 
+
+@property (nonatomic,assign) double longitude;
+
+@property (nonatomic, assign) double latitude;
+
+
 @end

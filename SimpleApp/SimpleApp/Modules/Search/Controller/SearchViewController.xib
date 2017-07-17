@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="searchButton" destination="Sea-1R-lrQ" id="h1t-h8-saT"/>
                 <outlet property="searchText" destination="9EG-Bc-o1q" id="Txz-Pb-Bow"/>
+                <outlet property="tableView" destination="tAb-gb-GxF" id="ctH-W2-zjE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,16 +46,28 @@
                     </constraints>
                     <state key="normal" title="搜索"/>
                 </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tAb-gb-GxF">
+                    <rect key="frame" x="0.0" y="75.5" width="375" height="591.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="c8V-jm-IkB"/>
+                        <outlet property="delegate" destination="-1" id="NyI-jx-U2Q"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Sea-1R-lrQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="2Cg-DZ-Gnc"/>
                 <constraint firstAttribute="trailing" secondItem="Sea-1R-lrQ" secondAttribute="trailing" constant="15" id="9H1-xk-RSc"/>
                 <constraint firstItem="Sea-1R-lrQ" firstAttribute="leading" secondItem="9EG-Bc-o1q" secondAttribute="trailing" constant="15" id="BZD-WG-ch8"/>
+                <constraint firstItem="tAb-gb-GxF" firstAttribute="top" secondItem="NJp-6N-fp3" secondAttribute="bottom" id="HfF-Ko-kbX"/>
+                <constraint firstAttribute="bottom" secondItem="tAb-gb-GxF" secondAttribute="bottom" id="Rpm-lS-Uk2"/>
+                <constraint firstAttribute="trailing" secondItem="tAb-gb-GxF" secondAttribute="trailing" id="aC9-FJ-NMw"/>
                 <constraint firstItem="NJp-6N-fp3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g7s-CP-BhC"/>
                 <constraint firstAttribute="trailing" secondItem="NJp-6N-fp3" secondAttribute="trailing" id="lJG-nj-nu8"/>
                 <constraint firstItem="NJp-6N-fp3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="lfs-cj-Scb"/>
                 <constraint firstItem="9EG-Bc-o1q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="loF-M1-KxK"/>
+                <constraint firstItem="tAb-gb-GxF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qQe-OR-vIM"/>
                 <constraint firstItem="9EG-Bc-o1q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="rAi-wx-6T0"/>
             </constraints>
             <point key="canvasLocation" x="25.5" y="52.5"/>
