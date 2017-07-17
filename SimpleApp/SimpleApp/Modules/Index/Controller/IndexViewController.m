@@ -13,6 +13,7 @@
 #import "SearchViewController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <AMapLocationKit/AMapLocationKit.h>
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 
 #define DefaultLocationTimeout 10
@@ -125,6 +126,9 @@
   [super viewWillAppear:animated];
   self.rt_navigationController.navigationBar.hidden = YES;
   self.navigationController.navigationBar.hidden = YES;
+  self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
+  self.fd_interactivePopDisabled = YES;
+  self.rt_navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {

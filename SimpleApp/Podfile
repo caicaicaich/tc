@@ -18,4 +18,5 @@ pod 'AMapNavi'
 pod 'RNTimer'
 pod "RTRootNavigationController"
 pod 'MJRefresh'
+pod 'FDFullscreenPopGesture', '1.1'
 end

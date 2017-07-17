@@ -34,6 +34,9 @@
 		C72362E31F1CBBAF00AFB066 /* RefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362E21F1CBBAF00AFB066 /* RefreshHeader.m */; };
 		C72362E61F1CBD5000AFB066 /* RefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362E51F1CBD5000AFB066 /* RefreshFooter.m */; };
 		C72362EA1F1CBEA300AFB066 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362E91F1CBEA300AFB066 /* UIScrollView+Refresh.m */; };
+		C72362F11F1CD04400AFB066 /* GDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362EF1F1CD04400AFB066 /* GDNavigationViewController.m */; };
+		C72362F21F1CD04400AFB066 /* GDNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C72362F01F1CD04400AFB066 /* GDNavigationViewController.xib */; };
+		C72362F61F1CD8A000AFB066 /* SpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362F51F1CD8A000AFB066 /* SpeechSynthesizer.m */; };
 		C75413501F1321D6009561B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C754134F1F1321D6009561B2 /* main.m */; };
 		C75413531F1321D6009561B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C75413521F1321D6009561B2 /* AppDelegate.m */; };
 		C75413561F1321D6009561B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C75413551F1321D6009561B2 /* ViewController.m */; };
@@ -140,6 +143,11 @@
 		C72362E51F1CBD5000AFB066 /* RefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshFooter.m; sourceTree = "<group>"; };
 		C72362E81F1CBEA300AFB066 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
 		C72362E91F1CBEA300AFB066 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
+		C72362EE1F1CD04400AFB066 /* GDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDNavigationViewController.h; sourceTree = "<group>"; };
+		C72362EF1F1CD04400AFB066 /* GDNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDNavigationViewController.m; sourceTree = "<group>"; };
+		C72362F01F1CD04400AFB066 /* GDNavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDNavigationViewController.xib; sourceTree = "<group>"; };
+		C72362F41F1CD8A000AFB066 /* SpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechSynthesizer.h; sourceTree = "<group>"; };
+		C72362F51F1CD8A000AFB066 /* SpeechSynthesizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechSynthesizer.m; sourceTree = "<group>"; };
 		C754134B1F1321D6009561B2 /* SimpleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C754134F1F1321D6009561B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C75413511F1321D6009561B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -282,6 +290,7 @@
 		5EE3F56F1F1A36C60016F096 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C72362EB1F1CCFFD00AFB066 /* navigation */,
 				5EE3F57E1F1B188D0016F096 /* Index */,
 				5EE3F5811F1B188D0016F096 /* Search */,
 				5EE3F5701F1A36C60016F096 /* Login */,
@@ -449,6 +458,41 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C72362EB1F1CCFFD00AFB066 /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				C72362EC1F1CCFFD00AFB066 /* Controller */,
+				C72362ED1F1CCFFD00AFB066 /* ViewModel */,
+			);
+			path = navigation;
+			sourceTree = "<group>";
+		};
+		C72362EC1F1CCFFD00AFB066 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C72362EE1F1CD04400AFB066 /* GDNavigationViewController.h */,
+				C72362EF1F1CD04400AFB066 /* GDNavigationViewController.m */,
+				C72362F01F1CD04400AFB066 /* GDNavigationViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C72362ED1F1CCFFD00AFB066 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C72362F31F1CD8A000AFB066 /* SpeechSynthesizer */ = {
+			isa = PBXGroup;
+			children = (
+				C72362F41F1CD8A000AFB066 /* SpeechSynthesizer.h */,
+				C72362F51F1CD8A000AFB066 /* SpeechSynthesizer.m */,
+			);
+			path = SpeechSynthesizer;
+			sourceTree = "<group>";
+		};
 		C75413421F1321D6009561B2 = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +554,7 @@
 		C773FA9E1F18B16D007BCE99 /* Amap */ = {
 			isa = PBXGroup;
 			children = (
+				C72362F31F1CD8A000AFB066 /* SpeechSynthesizer */,
 			);
 			path = Amap;
 			sourceTree = "<group>";
@@ -859,6 +904,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EE3F5881F1B321E0016F096 /* IndexViewController.xib in Resources */,
+				C72362F21F1CD04400AFB066 /* GDNavigationViewController.xib in Resources */,
 				5EE3F5761F1A37820016F096 /* LoginViewController.xib in Resources */,
 				5EE3F5A71F1B77440016F096 /* SearchViewController.xib in Resources */,
 				C754135E1F1321D6009561B2 /* LaunchScreen.storyboard in Resources */,
@@ -931,6 +977,7 @@
 				C7A562531F1482FB00B4FC58 /* LocalCacheDataPathConstant.m in Sources */,
 				C7E2FD771F13898800ADFB7F /* ListNetRequestBean.m in Sources */,
 				C7A562471F147DD500B4FC58 /* GlobalDataCacheForDisk.m in Sources */,
+				C72362F11F1CD04400AFB066 /* GDNavigationViewController.m in Sources */,
 				C7E2FD581F1371B100ADFB7F /* HttpRequestHandleOfAFNetworkingOfNSURLSessionTask.m in Sources */,
 				C72362E61F1CBD5000AFB066 /* RefreshFooter.m in Sources */,
 				C7A562291F146C6A00B4FC58 /* CustomHttpHeaders.m in Sources */,
@@ -946,6 +993,7 @@
 				C7E2FD511F1367D500ADFB7F /* NSString+isEmpty.m in Sources */,
 				C7A5626F1F14CC4B00B4FC58 /* LoginParseDomainBeanToDD.m in Sources */,
 				C7E2FD381F13550400ADFB7F /* UploadFileMIMETypeTools.m in Sources */,
+				C72362F61F1CD8A000AFB066 /* SpeechSynthesizer.m in Sources */,
 				C7E2FD641F13835700ADFB7F /* DomainBeanStub.m in Sources */,
 				C7A562441F147D4400B4FC58 /* CacheManageSingleton.m in Sources */,
 				C75413561F1321D6009561B2 /* ViewController.m in Sources */,
