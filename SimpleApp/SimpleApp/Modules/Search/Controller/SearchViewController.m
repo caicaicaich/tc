@@ -18,6 +18,10 @@
 #import "MJRefresh.h"
 #import "UIScrollView+Refresh.h"
 #import "Simpletoast.h"
+#import "GDNavigationViewController.h"
+#import <AMapNaviKit/AMapNaviKit.h>
+#import "Search.h"
+
 
 @interface SearchViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -40,7 +44,17 @@
     // Do any additional setup after loading the view from its nib.
   @weakify(self)
   self.searchViewModel = [[SearchViewModel alloc] init];
+  
+  
+  self.searchButton.enabled = NO;
+  [self.searchButton setTitle:@"取消" forState:UIControlStateNormal];
+  [self.searchButton setBackgroundColor:[UIColor whiteColor]];
+  [self.searchButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+  
+  
   [self.tableView registerNib:[UINib nibWithNibName:@"SearchTableViewCell" bundle:nil] forCellReuseIdentifier:@"SearchTableViewCell"];
+  
+
   
   [self.searchViewModel.requestSearchCommand.executing subscribeNext:^(NSNumber *executing) {
     if (executing.boolValue) {
@@ -65,6 +79,7 @@
        
      } error:^(NSError *error) {
        @strongify(self)
+       [self.hud hideAnimated:YES];
        [self.tableView.mj_header endRefreshing];
        [self.tableView.mj_footer endRefreshing];
        // 错误提示
@@ -76,18 +91,42 @@
   }];
   //上拉加载更多
   [self.tableView addRefreshFooterCallback:^{
-    [self.searchViewModel.requestSearchCommand execute:@(ListRequestDirectionEnum_LoadMore)];
+    NSDictionary *requestDict = @{@"Direction":@(ListRequestDirectionEnum_LoadMore)};
+    [self.searchViewModel.requestSearchCommand execute:requestDict];
+  }];
+  
+  [[self.searchText rac_signalForControlEvents:UIControlEventEditingChanged] subscribeNext:^(id x) {
+    @strongify(self)
+    if (self.searchText.text.length > 0) {
+      self.searchButton.enabled = YES;
+      [self.searchButton setBackgroundColor:[UIColor blueColor]];
+      [self.searchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+      [self.searchButton setTitle:@"搜索" forState:UIControlStateNormal];
+      
+    } else {
+      self.searchButton.enabled = NO;
+      [self.searchButton setTitle:@"取消" forState:UIControlStateNormal];
+      [self.searchButton setBackgroundColor:[UIColor whiteColor]];
+      [self.searchButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    
   }];
   
   
   [[self.searchButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
     @strongify(self)
-    self.searchViewModel.name = @"停车场";
-    self.searchViewModel.latitude = @"39.9703452314";
-    self.searchViewModel.longitude = @"116.5034008026";
-    //self.searchViewModel.pageNO = 1;
-    //self.searchViewModel.pageSize = 100;
-    [self.searchViewModel.requestSearchCommand execute:nil];
+    if ([self.searchButton.titleLabel.text isEqualToString:@"搜索"]) {
+      self.searchViewModel.name = self.searchText.text;
+      self.searchViewModel.latitude = [NSString stringWithFormat:@"%lf",self.latitude];
+      self.searchViewModel.longitude = [NSString stringWithFormat:@"%lf",self.longitude];
+      NSDictionary *requestDict = @{@"Direction":@(ListRequestDirectionEnum_Refresh)};
+      [self.searchViewModel.requestSearchCommand execute:requestDict];
+      
+    } else {
+      [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+    
   }];
   
 }
@@ -124,10 +163,25 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
+ 
+  Search *searchModel = self.searchViewModel.searchArray[indexPath.row];
+  if (searchModel == nil) {
+    return;
+  }
+  
+  AMapNaviPoint *startPoint = [AMapNaviPoint locationWithLatitude:39.96058159722222 longitude:116.4966021050347];
+  AMapNaviPoint *endPoint = [AMapNaviPoint locationWithLatitude:searchModel.latitude longitude:searchModel.longitude];
+  GDNavigationViewController *GDNavVc = [[GDNavigationViewController alloc] init];
+  GDNavVc.startPoint = startPoint;
+  GDNavVc.endPoint = endPoint;
+  [self.navigationController pushViewController:GDNavVc animated:YES];
+  
+  
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   return 80.0f;
+  
 }
 
 /*

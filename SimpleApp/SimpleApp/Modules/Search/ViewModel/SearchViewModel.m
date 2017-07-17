@@ -12,6 +12,7 @@
 #import "SearchNetRequestBean.h"
 #import "SearchNetRespondBean.h"
 #import "Search.h"
+#import "ListRequestDirectionEnum.h"
 
 @interface SearchViewModel ()
 
@@ -47,8 +48,22 @@
         return [RACSignal empty];
     }];
   
-    self.requestSearchCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+    self.requestSearchCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSDictionary *input) {
       @strongify(self)
+      
+      ListRequestDirectionEnum direction = [input[@"Direction"] integerValue];
+      switch (direction) {
+        case ListRequestDirectionEnum_Refresh:
+          self.pageNO = 0;
+          [self.mutableSearchArray removeAllObjects];
+          self.searchArray = [NSArray array];
+          break;
+        case ListRequestDirectionEnum_LoadMore:
+          break;
+        default:
+          break;
+      }
+      
       SearchNetRequestBean *searchNetRequestBean = [[SearchNetRequestBean alloc] initWithName:self.name pageNo:self.pageNO +1 pageSize:20 longitude:self.longitude latitude:self.latitude];
       
       return [[[[AppNetworkEngineSingleton sharedInstance] signalForNetRequestDomainBean:searchNetRequestBean] materialize] takeUntil:self.cancelRequestSearchCommand.executionSignals];

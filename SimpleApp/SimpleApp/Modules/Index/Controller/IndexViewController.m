@@ -17,6 +17,7 @@
 #import "TCPointAnnotation.h"
 #import "UserPointAnnotation.h"
 #import "SearchViewController.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 #define DefaultLocationTimeout 10
 #define DefaultReGeocodeTimeout 5
@@ -153,6 +154,7 @@
   [self.locationButton addTarget:self action:@selector(locationAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
+
 - (void)configSearchBottomBar
 {
   self.searchBottomBar = [[UIButton alloc] init];
@@ -169,6 +171,17 @@
   }];
   
   [self.searchBottomBar addTarget:self action:@selector(searchController) forControlEvents:UIControlEventTouchUpInside];
+
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  self.rt_navigationController.navigationBar.hidden = YES;
+  self.navigationController.navigationBar.hidden = YES;
+  self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
+  self.fd_interactivePopDisabled = YES;
+  self.rt_navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
 }
 
 #pragma mark - action

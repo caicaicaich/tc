@@ -20,7 +20,7 @@
 
 @property (nonatomic, assign) NSInteger pageNO;
 
-@property (nonatomic, assign) NSInteger pageSize;
+//@property (nonatomic, assign) NSInteger pageSize;
 
 @property (nonatomic, copy) NSString *longitude;
 
