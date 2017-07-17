@@ -15,7 +15,6 @@
 		5EE3F57A1F1A73EC0016F096 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3F5791F1A73EC0016F096 /* LoginViewModel.m */; };
 		5EE3F57D1F1B0FD00016F096 /* Simpletoast.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3F57C1F1B0FD00016F096 /* Simpletoast.m */; };
 		5EE3F5871F1B321E0016F096 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3F5851F1B321E0016F096 /* IndexViewController.m */; };
-		5EE3F5881F1B321E0016F096 /* IndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE3F5861F1B321E0016F096 /* IndexViewController.xib */; };
 		5EE3F5901F1B46A30016F096 /* HeartbeatDomainBeanHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3F58B1F1B46A30016F096 /* HeartbeatDomainBeanHelper.m */; };
 		5EE3F5911F1B46A30016F096 /* HeartbeatNetRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3F58D1F1B46A30016F096 /* HeartbeatNetRequestBean.m */; };
 		5EE3F5921F1B46A30016F096 /* HeartbeatNetRespondBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3F58F1F1B46A30016F096 /* HeartbeatNetRespondBean.m */; };
@@ -84,6 +83,12 @@
 		C7E2FD8A1F138E4B00ADFB7F /* AppDomainBeanStub.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2FD891F138E4B00ADFB7F /* AppDomainBeanStub.m */; };
 		C7E2FD8D1F13919700ADFB7F /* GlobalConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2FD8C1F13919700ADFB7F /* GlobalConstant.m */; };
 		C7E2FD901F1392DD00ADFB7F /* UrlConstantForThisProject.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E2FD8F1F1392DD00ADFB7F /* UrlConstantForThisProject.m */; };
+		E55E37531F1C9F0D005CD2B7 /* TCMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = E55E37521F1C9F0D005CD2B7 /* TCMapView.m */; };
+		E55E37561F1CA7E5005CD2B7 /* TCLocationListView.m in Sources */ = {isa = PBXBuildFile; fileRef = E55E37551F1CA7E5005CD2B7 /* TCLocationListView.m */; };
+		E55E37591F1CB5C2005CD2B7 /* TCIndexSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E55E37581F1CB5C2005CD2B7 /* TCIndexSearchBar.m */; };
+		E55E375D1F1CC1DC005CD2B7 /* TCLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E55E375B1F1CC1DC005CD2B7 /* TCLocationCell.m */; };
+		E55E375E1F1CC1DC005CD2B7 /* TCLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E55E375C1F1CC1DC005CD2B7 /* TCLocationCell.xib */; };
+		E55E37611F1CC4E7005CD2B7 /* IndexViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E55E37601F1CC4E7005CD2B7 /* IndexViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,7 +108,6 @@
 		5EE3F57C1F1B0FD00016F096 /* Simpletoast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simpletoast.m; sourceTree = "<group>"; };
 		5EE3F5841F1B321E0016F096 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
 		5EE3F5851F1B321E0016F096 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
-		5EE3F5861F1B321E0016F096 /* IndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexViewController.xib; sourceTree = "<group>"; };
 		5EE3F58A1F1B46A30016F096 /* HeartbeatDomainBeanHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartbeatDomainBeanHelper.h; sourceTree = "<group>"; };
 		5EE3F58B1F1B46A30016F096 /* HeartbeatDomainBeanHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartbeatDomainBeanHelper.m; sourceTree = "<group>"; };
 		5EE3F58C1F1B46A30016F096 /* HeartbeatNetRequestBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartbeatNetRequestBean.h; sourceTree = "<group>"; };
@@ -255,6 +259,17 @@
 		C7E2FD8C1F13919700ADFB7F /* GlobalConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalConstant.m; sourceTree = "<group>"; };
 		C7E2FD8E1F1392DD00ADFB7F /* UrlConstantForThisProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlConstantForThisProject.h; sourceTree = "<group>"; };
 		C7E2FD8F1F1392DD00ADFB7F /* UrlConstantForThisProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlConstantForThisProject.m; sourceTree = "<group>"; };
+		E55E37511F1C9F0D005CD2B7 /* TCMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCMapView.h; sourceTree = "<group>"; };
+		E55E37521F1C9F0D005CD2B7 /* TCMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCMapView.m; sourceTree = "<group>"; };
+		E55E37541F1CA7E5005CD2B7 /* TCLocationListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCLocationListView.h; sourceTree = "<group>"; };
+		E55E37551F1CA7E5005CD2B7 /* TCLocationListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCLocationListView.m; sourceTree = "<group>"; };
+		E55E37571F1CB5C2005CD2B7 /* TCIndexSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCIndexSearchBar.h; sourceTree = "<group>"; };
+		E55E37581F1CB5C2005CD2B7 /* TCIndexSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCIndexSearchBar.m; sourceTree = "<group>"; };
+		E55E375A1F1CC1DC005CD2B7 /* TCLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCLocationCell.h; sourceTree = "<group>"; };
+		E55E375B1F1CC1DC005CD2B7 /* TCLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCLocationCell.m; sourceTree = "<group>"; };
+		E55E375C1F1CC1DC005CD2B7 /* TCLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCLocationCell.xib; sourceTree = "<group>"; };
+		E55E375F1F1CC4E7005CD2B7 /* IndexViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewModel.h; sourceTree = "<group>"; };
+		E55E37601F1CC4E7005CD2B7 /* IndexViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewModel.m; sourceTree = "<group>"; };
 		F1BC67BDF62A14338777315D /* Pods-SimpleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleApp/Pods-SimpleApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -311,8 +326,9 @@
 		5EE3F57E1F1B188D0016F096 /* Index */ = {
 			isa = PBXGroup;
 			children = (
+				E55E374F1F1C9EE5005CD2B7 /* ViewModel */,
+				E55E37501F1C9EE5005CD2B7 /* View */,
 				5EE3F57F1F1B188D0016F096 /* Controller */,
-				5EE3F5801F1B188D0016F096 /* ViewModel */,
 			);
 			path = Index;
 			sourceTree = "<group>";
@@ -322,16 +338,8 @@
 			children = (
 				5EE3F5841F1B321E0016F096 /* IndexViewController.h */,
 				5EE3F5851F1B321E0016F096 /* IndexViewController.m */,
-				5EE3F5861F1B321E0016F096 /* IndexViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		5EE3F5801F1B188D0016F096 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		5EE3F5811F1B188D0016F096 /* Search */ = {
@@ -765,6 +773,31 @@
 			path = ToolsUtils;
 			sourceTree = "<group>";
 		};
+		E55E374F1F1C9EE5005CD2B7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E55E375F1F1CC4E7005CD2B7 /* IndexViewModel.h */,
+				E55E37601F1CC4E7005CD2B7 /* IndexViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E55E37501F1C9EE5005CD2B7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E55E37511F1C9F0D005CD2B7 /* TCMapView.h */,
+				E55E37521F1C9F0D005CD2B7 /* TCMapView.m */,
+				E55E37541F1CA7E5005CD2B7 /* TCLocationListView.h */,
+				E55E37551F1CA7E5005CD2B7 /* TCLocationListView.m */,
+				E55E37571F1CB5C2005CD2B7 /* TCIndexSearchBar.h */,
+				E55E37581F1CB5C2005CD2B7 /* TCIndexSearchBar.m */,
+				E55E375A1F1CC1DC005CD2B7 /* TCLocationCell.h */,
+				E55E375B1F1CC1DC005CD2B7 /* TCLocationCell.m */,
+				E55E375C1F1CC1DC005CD2B7 /* TCLocationCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -799,7 +832,7 @@
 				TargetAttributes = {
 					C754134A1F1321D6009561B2 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = VSK7A5A3W7;
+						DevelopmentTeam = 7524R5UJ2G;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -827,9 +860,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EE3F5881F1B321E0016F096 /* IndexViewController.xib in Resources */,
 				5EE3F5761F1A37820016F096 /* LoginViewController.xib in Resources */,
 				5EE3F5A71F1B77440016F096 /* SearchViewController.xib in Resources */,
+				E55E375E1F1CC1DC005CD2B7 /* TCLocationCell.xib in Resources */,
 				C754135E1F1321D6009561B2 /* LaunchScreen.storyboard in Resources */,
 				5EE3F5AD1F1B779A0016F096 /* SearchTableViewCell.xib in Resources */,
 				C754135B1F1321D6009561B2 /* Assets.xcassets in Resources */,
@@ -852,7 +885,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A1E35D68B791F61E20E4447A /* [CP] Copy Pods Resources */ = {
@@ -895,7 +928,10 @@
 				C7E2FD7B1F138AB100ADFB7F /* ListNetRequestBeanEx.m in Sources */,
 				C7E2FD7E1F138B3200ADFB7F /* ListNetRespondBean.m in Sources */,
 				C7E2FD711F13888A00ADFB7F /* BaseModel.m in Sources */,
+				E55E37611F1CC4E7005CD2B7 /* IndexViewModel.m in Sources */,
+				E55E37561F1CA7E5005CD2B7 /* TCLocationListView.m in Sources */,
 				C7A562661F14AEFE00B4FC58 /* LoginNetRequestBean.m in Sources */,
+				E55E37531F1C9F0D005CD2B7 /* TCMapView.m in Sources */,
 				5EE3F56E1F1A16CE0016F096 /* PRPDebug.m in Sources */,
 				C7A562531F1482FB00B4FC58 /* LocalCacheDataPathConstant.m in Sources */,
 				C7E2FD771F13898800ADFB7F /* ListNetRequestBean.m in Sources */,
@@ -906,6 +942,7 @@
 				C7A562321F146F2100B4FC58 /* NetResponseRawEntityDataUnpack.m in Sources */,
 				C7A5622C1F146D2E00B4FC58 /* GetServerResponseDataValidityData.m in Sources */,
 				C7E2FD901F1392DD00ADFB7F /* UrlConstantForThisProject.m in Sources */,
+				E55E375D1F1CC1DC005CD2B7 /* TCLocationCell.m in Sources */,
 				C7E2FD351F13354A00ADFB7F /* NetRequestHandleNilObject.m in Sources */,
 				5EE3F5921F1B46A30016F096 /* HeartbeatNetRespondBean.m in Sources */,
 				C7A562351F146F9500B4FC58 /* ServerResponseDataValidityTest.m in Sources */,
@@ -913,6 +950,7 @@
 				C773FAAA1F18C4B5007BCE99 /* AppNetworkEngineSingleton.m in Sources */,
 				C7E2FD511F1367D500ADFB7F /* NSString+isEmpty.m in Sources */,
 				C7A5626F1F14CC4B00B4FC58 /* LoginParseDomainBeanToDD.m in Sources */,
+				E55E37591F1CB5C2005CD2B7 /* TCIndexSearchBar.m in Sources */,
 				C7E2FD381F13550400ADFB7F /* UploadFileMIMETypeTools.m in Sources */,
 				C7E2FD641F13835700ADFB7F /* DomainBeanStub.m in Sources */,
 				C7A562441F147D4400B4FC58 /* CacheManageSingleton.m in Sources */,
@@ -1081,7 +1119,7 @@
 			baseConfigurationReference = 05D50CD2EBAF90C9FB6594CC /* Pods-SimpleApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VSK7A5A3W7;
+				DEVELOPMENT_TEAM = 7524R5UJ2G;
 				INFOPLIST_FILE = SimpleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zandama.SimpleApp;
@@ -1094,7 +1132,7 @@
 			baseConfigurationReference = F1BC67BDF62A14338777315D /* Pods-SimpleApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VSK7A5A3W7;
+				DEVELOPMENT_TEAM = 7524R5UJ2G;
 				INFOPLIST_FILE = SimpleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zandama.SimpleApp;

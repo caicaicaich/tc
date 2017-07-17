@@ -7,172 +7,153 @@
 //
 
 #import "IndexViewController.h"
-#import <MAMapKit/MAMapKit.h>
-#import <AMapFoundationKit/AMapFoundationKit.h>
 #import <RTRootNavigationController.h>
 #import "SearchViewController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
-#import <AMapLocationKit/AMapLocationKit.h>
-
+#import <Masonry/Masonry.h>
+#import "TCMapView.h"
+#import "TCLocationListView.h"
+#import "TCIndexSearchBar.h"
 
 #define DefaultLocationTimeout 10
 #define DefaultReGeocodeTimeout 5
+#define LocationListProportion 0.4
 
-@interface IndexViewController ()<AMapLocationManagerDelegate>
+@interface IndexViewController ()<TCMapViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *mapParentView;
+@property (nonatomic, strong) TCMapView *mapView;
 
-@property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@property (nonatomic, strong) TCIndexSearchBar *searchBar;
 
-@property (strong, nonatomic) AMapLocationManager *locationManager;
+@property (nonatomic, strong) TCLocationListView *locationListView;
 
-@property (copy, nonatomic) AMapLocatingCompletionBlock completionBlock;
+@property (nonatomic, strong) UIImageView *locationButton;
 
-@property (nonatomic, assign) NSInteger locateCount;
+@property (nonatomic, strong) UIButton *searchBottomBar;
 
 @end
 
 @implementation IndexViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    @weakify(self)
   
-  self.locateCount = 0;
+  [super viewDidLoad];
   
-  [self initCompleteBlock];
+  [self configMapView];
+  [self configSearchButton];
+  [self configSearchBottomBar];
+  [self configLocationList];
+  [self configLocationButton];
   
-  [self configLocationManager];
+}
+
+#pragma mark - config ui
+
+- (void)configMapView
+{
+  self.mapView = [[TCMapView alloc] initWithFrame:CGRectZero];
+  self.mapView.delegate = self;
+  self.mapView.frame = [UIScreen mainScreen].bounds;
+  [self.view addSubview:self.mapView];
+}
+
+- (void)configSearchButton
+{
+  self.searchBar = [[TCIndexSearchBar alloc] initWithFrame:CGRectZero];
+  self.searchBar.frame = CGRectMake(15, 30, [UIScreen mainScreen].bounds.size.width - 30, 50);
+  [self.view addSubview:self.searchBar];
+}
+
+- (void)configLocationList
+{
+  self.locationListView = [[TCLocationListView alloc] initWithFrame:CGRectZero];
+  [self.view addSubview:self.locationListView];
   
-    //初始化地图
-    MAMapView *_mapView = [[MAMapView alloc] initWithFrame:self.mapParentView.bounds];
-    [self.mapParentView addSubview:_mapView];
-    
-    [[self.searchButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self)
-        SearchViewController *searchVC = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
-        [self.navigationController pushViewController:searchVC animated:YES];
-        
+  @weakify(self);
+  [self.locationListView mas_makeConstraints:^(MASConstraintMaker *make) {
+    @strongify(self);
+    make.bottom.left.right.equalTo(self.view);
+    make.height.mas_equalTo([UIScreen mainScreen].bounds.size.height * LocationListProportion);
+  }];
+}
+
+- (void)configLocationButton
+{
+  self.locationButton = [[UIImageView alloc] init];
+  self.locationButton.backgroundColor = [UIColor redColor];
+  self.locationButton.userInteractionEnabled = YES;
+  [self.view addSubview:self.locationButton];
+  
+  @weakify(self);
+  [self.locationButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    @strongify(self);
+    make.left.equalTo(self.view).offset(20);
+    make.bottom.equalTo(self.locationListView.mas_top).offset(-20);
+    make.height.mas_equalTo(30);
+    make.width.mas_equalTo(30);
+  }];
+  
+  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(locationAction)];
+  [self.locationButton addGestureRecognizer:tap];
+}
+
+- (void)configSearchBottomBar
+{
+  self.searchBottomBar = [[UIButton alloc] init];
+  [self.view addSubview:self.searchBottomBar];
+  self.searchBottomBar.backgroundColor = [UIColor whiteColor];
+  [self.searchBottomBar setTitle:@"周边停车场" forState:UIControlStateNormal];
+  [self.searchBottomBar setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
+  
+  @weakify(self);
+  [self.searchBottomBar mas_makeConstraints:^(MASConstraintMaker *make) {
+    @strongify(self);
+    make.left.right.bottom.equalTo(self.view).offset(0);
+    make.height.mas_equalTo(55);
+  }];
+}
+
+#pragma mark - action
+
+- (void)locationAction
+{
+  [self.mapView locationOnce];
+}
+
+#pragma mark - TCMapViewDelegate
+
+- (void)tcMapViewDidEndScrollow:(TCMapView *)mapview down:(BOOL)down
+{
+  if (down) {
+    @weakify(self);
+    [UIView animateWithDuration:0.375 animations:^{
+      @strongify(self);
+      [self.locationListView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(0);
+      }];
+      [self.locationButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.bottom.equalTo(self.locationListView.mas_top).offset(-75);
+      }];
+      [self.view layoutIfNeeded];
     }];
-  
-  //定位
-  [self.locationManager stopUpdatingLocation];
-  
-  self.locateCount = 0;
-  
-  //进行单次定位
-  [self.locationManager requestLocationWithReGeocode:YES completionBlock:self.completionBlock];
-  
+  }
 }
 
-#pragma mark - Initialization
-
-- (void)initCompleteBlock
+- (void)tcMapViewLocationFinished:(TCMapView *)mapview location:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)reGeocode
 {
-  @weakify(self)
-  self.completionBlock = ^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error)
-  {
-    @strongify(self)
-    if (error)
-    {
-      NSLog(@"locError:{%ld - %@};", (long)error.code, error.localizedDescription);
-      return;
-    }
-    
-    //得到定位信息
-    if (location)
-    {
-      [self updateLocation:location regeocode:regeocode serial:NO];
-    }
-  };
+  [self.locationListView requestLocationList:location reGeocode:reGeocode];
 }
-
-#pragma mark - Action Handle
-
-- (void)configLocationManager
-{
-  self.locationManager = [[AMapLocationManager alloc] init];
-  
-  [self.locationManager setDelegate:self];
-  
-  //设置期望定位精度
-  [self.locationManager setDesiredAccuracy:kCLLocationAccuracyKilometer];
-  
-  //设置不允许系统暂停定位
-  [self.locationManager setPausesLocationUpdatesAutomatically:NO];
-  
-  //设置允许在后台定位
-  //[self.locationManager setAllowsBackgroundLocationUpdates:YES];
-  
-  //开启带逆地理连续定位
-  [self.locationManager setLocatingWithReGeocode:YES];
-  
-  //设置定位超时时间
-  [self.locationManager setLocationTimeout:DefaultLocationTimeout];
-  
-  //设置逆地理超时时间
-  [self.locationManager setReGeocodeTimeout:DefaultReGeocodeTimeout];
-}
-
-
--(void)createUI {
-  
-}
-
-
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.rt_navigationController.navigationBar.hidden = YES;
-    self.navigationController.navigationBar.hidden = YES;
+  [super viewWillAppear:animated];
+  self.rt_navigationController.navigationBar.hidden = YES;
+  self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
 }
 
--(void)updateLocation:(CLLocation *)location regeocode:(AMapLocationReGeocode *)regeocode serial:(BOOL)isSerial {
-  NSString *locType = isSerial ? [NSString stringWithFormat:@"连续定位完成:%d", (int)self.locateCount] : @"单次定位完成";
-  
-  NSMutableString *infoString = [NSMutableString stringWithFormat:@"%@\n\n回调时间:%@\n经 度:%f\n纬 度\t:%f\n精 度:%f米\n海 拔:%f米\n速 度:%f\n角 度:%f\n", locType, location.timestamp, location.coordinate.longitude, location.coordinate.latitude, location.horizontalAccuracy, location.altitude, location.speed, location.course];
-  
-  if (regeocode)
-  {
-    NSString *regeoString = [NSString stringWithFormat:@"国 家:%@\n省:%@\n市:%@\n城市编码:%@\n区:%@\n区 域:%@\n地 址:%@\n兴趣点:%@\n", regeocode.country, regeocode.province, regeocode.city, regeocode.citycode, regeocode.district, regeocode.adcode, regeocode.formattedAddress, regeocode.POIName];
-    [infoString appendString:regeoString];
-  }
-  
-  
-}
-
-
-#pragma mark - AMapLocationManager Delegate
-- (void)amapLocationManager:(AMapLocationManager *)manager didFailWithError:(NSError *)error
-{
-  NSLog(@"%s, amapLocationManager = %@, error = %@", __func__, [manager class], error);
-}
-
-- (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)reGeocode
-{
-  NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
-  
-  self.locateCount += 1;
-  
-  [self updateLocation:location regeocode:reGeocode serial:YES];
-}
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

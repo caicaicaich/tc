@@ -56,7 +56,7 @@
     [self.loginViewModel.requestLoginCommand.executionSignals subscribeNext:^(RACSignal *execution) {
         [[execution dematerialize] subscribeNext:^(LoginNetRespondBean *respondBean) {
             [[LoginManager sharedInstance] updateLoginUserInfo:respondBean];
-            IndexViewController *indexVC = [[IndexViewController alloc] initWithNibName:@"IndexViewController" bundle:nil];
+            IndexViewController *indexVC = [[IndexViewController alloc] init];
             [self.navigationController pushViewController:indexVC animated:YES];
             
         } error:^(NSError *error) {
@@ -77,8 +77,9 @@
         
     }];
     
-    
-    
+  self.loginViewModel.phone = @"admin";
+  self.loginViewModel.password = @"1";
+  [self.loginViewModel.requestLoginCommand execute:nil];
 
 }
 
