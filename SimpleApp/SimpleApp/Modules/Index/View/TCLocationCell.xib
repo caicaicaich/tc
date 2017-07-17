@@ -21,21 +21,20 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFf-35-8Nt">
                         <rect key="frame" x="0.0" y="0.0" width="427" height="156.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80k-LM-gju">
-                                <rect key="frame" x="15" y="20" width="335" height="21.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80k-LM-gju">
+                                <rect key="frame" x="15" y="20" width="335" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXs-yO-IQl">
-                                <rect key="frame" x="15" y="117" width="335" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXs-yO-IQl">
+                                <rect key="frame" x="15" y="136.5" width="335" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.45098039220000002" green="0.45098039220000002" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqd-xC-MI4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chufa" translatesAutoresizingMaskIntoConstraints="NO" id="yqd-xC-MI4">
                                 <rect key="frame" x="367" y="15" width="45" height="45"/>
-                                <color key="backgroundColor" red="0.0" green="0.57254901960000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="Ap9-Ce-sK3"/>
                                     <constraint firstAttribute="height" constant="45" id="H5S-82-swG"/>
@@ -80,7 +79,14 @@
                     <constraint firstAttribute="trailing" secondItem="oFf-35-8Nt" secondAttribute="trailing" id="na8-Kz-3BX"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="desc" destination="kXs-yO-IQl" id="JpH-MS-6Tj"/>
+                <outlet property="title" destination="80k-LM-gju" id="fHh-aJ-BHD"/>
+            </connections>
             <point key="canvasLocation" x="37.5" y="124.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="chufa" width="40" height="40"/>
+    </resources>
 </document>

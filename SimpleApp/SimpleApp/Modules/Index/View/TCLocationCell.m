@@ -31,7 +31,12 @@
 - (void)bindModel:(Search *)model
 {
   self.title.text = model.name;
-  self.desc.text = [NSString stringWithFormat:@"%@米 | %@",model.distance,model.address];
+  CGFloat distance = [model.distance floatValue];
+  if (distance>=1000) {
+    self.desc.text = [NSString stringWithFormat:@"%.1f千米 | %@",distance/1000,model.address];
+  }else{
+    self.desc.text = [NSString stringWithFormat:@"%.0f米 | %@",distance,model.address];
+  }
 }
 
 @end

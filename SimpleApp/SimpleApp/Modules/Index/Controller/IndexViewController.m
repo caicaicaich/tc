@@ -14,6 +14,9 @@
 #import "TCMapView.h"
 #import "TCLocationListView.h"
 #import "TCIndexSearchBar.h"
+#import "TCPointAnnotation.h"
+#import "UserPointAnnotation.h"
+#import "SearchViewController.h"
 
 #define DefaultLocationTimeout 10
 #define DefaultReGeocodeTimeout 5
@@ -27,7 +30,7 @@
 
 @property (nonatomic, strong) TCLocationListView *locationListView;
 
-@property (nonatomic, strong) UIImageView *locationButton;
+@property (nonatomic, strong) UIButton *locationButton;
 
 @property (nonatomic, strong) UIButton *searchBottomBar;
 
@@ -62,6 +65,10 @@
   self.searchBar = [[TCIndexSearchBar alloc] initWithFrame:CGRectZero];
   self.searchBar.frame = CGRectMake(15, 30, [UIScreen mainScreen].bounds.size.width - 30, 50);
   [self.view addSubview:self.searchBar];
+  
+  self.searchBar.userInteractionEnabled = YES;
+  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(searchController)];
+  [self.searchBar addGestureRecognizer:tap];
 }
 
 - (void)configLocationList
@@ -73,28 +80,77 @@
   [self.locationListView mas_makeConstraints:^(MASConstraintMaker *make) {
     @strongify(self);
     make.bottom.left.right.equalTo(self.view);
-    make.height.mas_equalTo([UIScreen mainScreen].bounds.size.height * LocationListProportion);
+    make.height.mas_equalTo(0);
+  }];
+  
+  [RACObserve(self.locationListView, locationCount) subscribeNext:^(id x) {
+    @strongify(self);
+    [UIView animateWithDuration:0.375 animations:^{
+      @strongify(self);
+      if (self.locationListView.locationCount == 0) {
+        [self.locationListView mas_updateConstraints:^(MASConstraintMaker *make) {
+          make.height.mas_equalTo(0);
+        }];
+        [self.locationButton mas_updateConstraints:^(MASConstraintMaker *make) {
+          @strongify(self);
+          make.bottom.equalTo(self.locationListView.mas_top).offset(-75);
+        }];
+      }else{
+        if (self.locationListView.locationCount > 3) {
+          [self.locationListView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(300);
+          }];
+          [self.locationButton mas_updateConstraints:^(MASConstraintMaker *make) {
+            @strongify(self);
+            make.bottom.equalTo(self.locationListView.mas_top).offset(-20);
+          }];
+        }else{
+          [self.locationListView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(self.locationListView.locationCount * 100);
+          }];
+          [self.locationButton mas_updateConstraints:^(MASConstraintMaker *make) {
+            @strongify(self);
+            make.bottom.equalTo(self.locationListView.mas_top).offset(-20);
+          }];
+        }
+      }
+      [self.view layoutIfNeeded];
+    }];
+  }];
+  
+  [RACObserve(self.locationListView.viewModel, locationList) subscribeNext:^(id x) {
+    @strongify(self);
+    [self.mapView removeAllAnnotations];
+    __block NSMutableArray *anns = [NSMutableArray arrayWithCapacity:0];
+    
+    [self.locationListView.viewModel.locationList enumerateObjectsUsingBlock:^(Search * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+      TCPointAnnotation *pointAnnotation = [[TCPointAnnotation alloc] init];
+      pointAnnotation.coordinate = CLLocationCoordinate2DMake(obj.latitude , obj.longitude);
+      [anns addObject:pointAnnotation];
+    }];
+    
+    [self.mapView addAnnotations:anns];
   }];
 }
 
 - (void)configLocationButton
 {
-  self.locationButton = [[UIImageView alloc] init];
-  self.locationButton.backgroundColor = [UIColor redColor];
+  self.locationButton = [[UIButton alloc] init];
   self.locationButton.userInteractionEnabled = YES;
+  [self.locationButton setImage:[UIImage imageNamed:@"shouye_dingwei"] forState:UIControlStateNormal];
+  [self.locationButton setImage:[UIImage imageNamed:@"shouye_dingwei_selected"] forState:UIControlStateHighlighted];
   [self.view addSubview:self.locationButton];
   
   @weakify(self);
   [self.locationButton mas_makeConstraints:^(MASConstraintMaker *make) {
     @strongify(self);
     make.left.equalTo(self.view).offset(20);
-    make.bottom.equalTo(self.locationListView.mas_top).offset(-20);
+    make.bottom.equalTo(self.locationListView.mas_top).offset(-75);
     make.height.mas_equalTo(30);
     make.width.mas_equalTo(30);
   }];
   
-  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(locationAction)];
-  [self.locationButton addGestureRecognizer:tap];
+  [self.locationButton addTarget:self action:@selector(locationAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configSearchBottomBar
@@ -111,10 +167,17 @@
     make.left.right.bottom.equalTo(self.view).offset(0);
     make.height.mas_equalTo(55);
   }];
+  
+  [self.searchBottomBar addTarget:self action:@selector(searchController) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - action
 
+- (void)searchController
+{
+  SearchViewController *search = [[SearchViewController alloc] init];
+  [self.navigationController pushViewController:search animated:YES];
+}
 - (void)locationAction
 {
   [self.mapView locationOnce];

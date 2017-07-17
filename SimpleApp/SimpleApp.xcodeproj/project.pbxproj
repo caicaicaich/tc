@@ -92,6 +92,8 @@
 		E55E375D1F1CC1DC005CD2B7 /* TCLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E55E375B1F1CC1DC005CD2B7 /* TCLocationCell.m */; };
 		E55E375E1F1CC1DC005CD2B7 /* TCLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E55E375C1F1CC1DC005CD2B7 /* TCLocationCell.xib */; };
 		E55E37611F1CC4E7005CD2B7 /* IndexViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E55E37601F1CC4E7005CD2B7 /* IndexViewModel.m */; };
+		E55E37641F1CD90A005CD2B7 /* TCPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E55E37631F1CD90A005CD2B7 /* TCPointAnnotation.m */; };
+		E55E37671F1CDBA6005CD2B7 /* UserPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E55E37661F1CDBA6005CD2B7 /* UserPointAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -279,6 +281,10 @@
 		E55E375C1F1CC1DC005CD2B7 /* TCLocationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCLocationCell.xib; sourceTree = "<group>"; };
 		E55E375F1F1CC4E7005CD2B7 /* IndexViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewModel.h; sourceTree = "<group>"; };
 		E55E37601F1CC4E7005CD2B7 /* IndexViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewModel.m; sourceTree = "<group>"; };
+		E55E37621F1CD909005CD2B7 /* TCPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPointAnnotation.h; sourceTree = "<group>"; };
+		E55E37631F1CD90A005CD2B7 /* TCPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPointAnnotation.m; sourceTree = "<group>"; };
+		E55E37651F1CDBA6005CD2B7 /* UserPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPointAnnotation.h; sourceTree = "<group>"; };
+		E55E37661F1CDBA6005CD2B7 /* UserPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPointAnnotation.m; sourceTree = "<group>"; };
 		F1BC67BDF62A14338777315D /* Pods-SimpleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleApp/Pods-SimpleApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -825,6 +831,10 @@
 				E55E375A1F1CC1DC005CD2B7 /* TCLocationCell.h */,
 				E55E375B1F1CC1DC005CD2B7 /* TCLocationCell.m */,
 				E55E375C1F1CC1DC005CD2B7 /* TCLocationCell.xib */,
+				E55E37621F1CD909005CD2B7 /* TCPointAnnotation.h */,
+				E55E37631F1CD90A005CD2B7 /* TCPointAnnotation.m */,
+				E55E37651F1CDBA6005CD2B7 /* UserPointAnnotation.h */,
+				E55E37661F1CDBA6005CD2B7 /* UserPointAnnotation.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1000,6 +1010,7 @@
 				5E2B2C011F19B2250044DCD6 /* SimpleNetworkEngine+RACSupport.m in Sources */,
 				5EE3F5AC1F1B779A0016F096 /* SearchTableViewCell.m in Sources */,
 				C75413501F1321D6009561B2 /* main.m in Sources */,
+				E55E37641F1CD90A005CD2B7 /* TCPointAnnotation.m in Sources */,
 				C7E2FD3E1F135EC300ADFB7F /* HttpEngineOfAFNetworking.m in Sources */,
 				C7E2FD6B1F13860100ADFB7F /* NetRequestHandleStub.m in Sources */,
 				5EE3F59C1F1B57C50016F096 /* SearchNetRespondBean.m in Sources */,
@@ -1026,6 +1037,7 @@
 				C7A562381F14713000B4FC58 /* ProjectHelper.m in Sources */,
 				C7E2FD6E1F1387EA00ADFB7F /* UploadFileInfoFromServer.m in Sources */,
 				5EE3F59F1F1B58530016F096 /* Search.m in Sources */,
+				E55E37671F1CDBA6005CD2B7 /* UserPointAnnotation.m in Sources */,
 				5EE3F5751F1A37820016F096 /* LoginViewController.m in Sources */,
 				C773FAA41F18C16C007BCE99 /* LoginManager.m in Sources */,
 				C72362EA1F1CBEA300AFB066 /* UIScrollView+Refresh.m in Sources */,

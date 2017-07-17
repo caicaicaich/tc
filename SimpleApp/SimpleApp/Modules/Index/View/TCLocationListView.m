@@ -8,13 +8,10 @@
 
 #import "TCLocationListView.h"
 #import "TCLocationCell.h"
-#import "IndexViewModel.h"
 
 @interface TCLocationListView ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
-
-@property (nonatomic, strong) IndexViewModel *viewModel;
 
 @end
 
@@ -40,7 +37,12 @@
     @weakify(self);
     [RACObserve(self.viewModel, locationList) subscribeNext:^(id x) {
       @strongify(self);
+      self.locationCount = self.viewModel.locationList.count;
       [self.tableView reloadData];
+      
+      CGPoint off = self.tableView.contentOffset;
+      off.y = 0 - self.tableView.contentInset.top;
+      [self.tableView setContentOffset:off animated:YES];
     }];
   }
   return self;
@@ -49,8 +51,8 @@
 - (void)requestLocationList:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)regeocode
 {
   NSDictionary *param = @{@"location":@"停车场",
-                          @"latitude":@(location.coordinate.latitude),
-                          @"longitude":@(location.coordinate.longitude)
+                          @"latitude":[NSString stringWithFormat:@"%f",location.coordinate.latitude],
+                          @"longitude":[NSString stringWithFormat:@"%f",location.coordinate.longitude]
                           };
   [self.viewModel.requestLocationListCommand execute:param];
 }
@@ -70,6 +72,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   TCLocationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TCLocationCell"];
+  [cell bindModel:[self.viewModel.locationList objectAtIndex:indexPath.row]];
   return cell;
 }
 

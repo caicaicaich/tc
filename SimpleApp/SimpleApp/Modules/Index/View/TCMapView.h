@@ -29,6 +29,18 @@
 
 @property (nonatomic, strong, readonly) MAMapView *map;
 
+@property (nonatomic, strong, readonly) NSArray *annotations;
+
 - (void)locationOnce;
+
+- (void)addAnnotation:(id <MAAnnotation>)annotation;
+
+- (void)addAnnotations:(NSArray *)annotations;
+
+- (void)removeAnnotation:(id <MAAnnotation>)annotation;
+
+- (void)removeAnnotations:(NSArray *)annotations;
+
+- (void)removeAllAnnotations;
 
 @end

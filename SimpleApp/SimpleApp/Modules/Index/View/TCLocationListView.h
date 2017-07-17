@@ -10,9 +10,14 @@
 #import <MAMapKit/MAMapKit.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
+#import "IndexViewModel.h"
 
 @interface TCLocationListView : UIView
 
 - (void)requestLocationList:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)reGeocode;
+
+@property (nonatomic, strong) IndexViewModel *viewModel;
+
+@property (nonatomic, assign) NSInteger locationCount;
 
 @end

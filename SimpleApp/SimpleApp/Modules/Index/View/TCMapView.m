@@ -7,6 +7,8 @@
 //
 
 #import "TCMapView.h"
+#import "TCPointAnnotation.h"
+#import "UserPointAnnotation.h"
 
 #define DefaultLocationTimeout 10
 #define DefaultReGeocodeTimeout 5
@@ -20,6 +22,8 @@
 @property (nonatomic, assign) NSInteger locateCount;
 
 @property (nonatomic) CLLocationCoordinate2D centerCoordinate;
+
+@property (nonatomic, strong) UserPointAnnotation *userPointAnnotaiton;
 
 @end
 
@@ -38,8 +42,8 @@
     self.map.delegate = self;
     self.map.zoomLevel = 15.1;
     self.map.showsCompass = NO;
-    self.map.showsUserLocation = YES;
-    self.map.userTrackingMode = MAUserTrackingModeFollow;
+    self.map.showsUserLocation = NO;
+    self.map.userTrackingMode = MAUserTrackingModeNone;
     [self addSubview:self.map];
     
     self.locateCount = 0;
@@ -78,6 +82,38 @@
       }
     }
   }
+}
+
+- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation
+{
+  if ([annotation isKindOfClass:[TCPointAnnotation class]])
+  {
+    static NSString *pointReuseIndentifier = @"pointReuseIndentifier";
+    MAPinAnnotationView*annotationView = (MAPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndentifier];
+    if (annotationView == nil)
+    {
+      annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndentifier];
+    }
+    annotationView.canShowCallout= YES;       //设置气泡可以弹出，默认为NO
+    annotationView.animatesDrop = YES;        //设置标注动画显示，默认为NO
+    annotationView.draggable = NO;        //设置标注可以拖动，默认为NO
+    annotationView.image = [UIImage imageNamed:@"shouye_tingchewei"];
+    return annotationView;
+  }
+  if ([annotation isKindOfClass:[UserPointAnnotation class]]) {
+    static NSString *pointReuseIndentifier = @"UserPointAnnotation";
+    MAPinAnnotationView*annotationView = (MAPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndentifier];
+    if (annotationView == nil)
+    {
+      annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndentifier];
+    }
+    annotationView.canShowCallout= NO;       //设置气泡可以弹出，默认为NO
+    annotationView.animatesDrop = NO;        //设置标注动画显示，默认为NO
+    annotationView.draggable = NO;        //设置标注可以拖动，默认为NO
+    annotationView.image = [UIImage imageNamed:@"shouye_weizhi"];
+    return annotationView;
+  }
+  return nil;
 }
 
 #pragma mark - LocationManager
@@ -148,6 +184,17 @@
   [self updateLocation:location regeocode:reGeocode serial:YES];
   [self.map setCenterCoordinate:location.coordinate animated:YES];
   [self.map setZoomLevel:15.1 animated:YES];
+  
+  if (self.userPointAnnotaiton) {
+    [self.map removeAnnotation:self.userPointAnnotaiton];
+    self.userPointAnnotaiton = nil;
+  }
+  
+  self.userPointAnnotaiton = [[UserPointAnnotation alloc] init];
+  [self.userPointAnnotaiton setCoordinate:location.coordinate];
+  [self.map addAnnotation:self.userPointAnnotaiton];
+  [self.userPointAnnotaiton setCoordinate:location.coordinate];
+  
   if (self.delegate && [self.delegate respondsToSelector:@selector(tcMapViewLocationFinished:location:reGeocode:)]) {
     [self.delegate tcMapViewLocationFinished:self location:location reGeocode:reGeocode];
   }
@@ -240,6 +287,16 @@
                      completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
                        if (error) return;
                        
+                       if (ws.userPointAnnotaiton) {
+                         [ws.map removeAnnotation:ws.userPointAnnotaiton];
+                         ws.userPointAnnotaiton = nil;
+                       }
+                       
+                       ws.userPointAnnotaiton = [[UserPointAnnotation alloc] init];
+                       [ws.userPointAnnotaiton setCoordinate:location.coordinate];
+                       [ws.map addAnnotation:ws.userPointAnnotaiton];
+                       [ws.userPointAnnotaiton setCoordinate:location.coordinate];
+                       
                        [ws updateLocation:location regeocode:regeocode serial:YES];
                        [ws.map setCenterCoordinate:location.coordinate animated:YES];
                        [ws.map setZoomLevel:15.1 animated:YES];
@@ -264,13 +321,60 @@
                      completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
                        if (error) return;
                        
+                       if (ws.userPointAnnotaiton) {
+                         [ws.map removeAnnotation:ws.userPointAnnotaiton];
+                         ws.userPointAnnotaiton = nil;
+                       }
+                       
+                       ws.userPointAnnotaiton = [[UserPointAnnotation alloc] init];
+                       [ws.userPointAnnotaiton setCoordinate:location.coordinate];
+                       [ws.map addAnnotation:ws.userPointAnnotaiton];
+                       [ws.userPointAnnotaiton setCoordinate:location.coordinate];
+                       
                        [ws updateLocation:location regeocode:regeocode serial:YES];
                        [ws.map setCenterCoordinate:location.coordinate animated:YES];
                        [ws.map setZoomLevel:15.1 animated:YES];
                        if (ws.delegate && [ws.delegate respondsToSelector:@selector(tcMapViewLocationFinished:location:reGeocode:)]) {
                          [ws.delegate tcMapViewLocationFinished:ws location:location reGeocode:regeocode];
                        }
+                       
                      }];
+}
+
+- (void)addAnnotation:(id <MAAnnotation>)annotation
+{
+  [self.map addAnnotation:annotation];
+}
+
+- (void)addAnnotations:(NSArray *)annotations
+{
+  [self.map addAnnotations:annotations];
+}
+
+- (void)removeAnnotation:(id <MAAnnotation>)annotation
+{
+  [self.map removeAnnotation:annotation];
+}
+
+- (void)removeAnnotations:(NSArray *)annotations
+{
+  [self.map removeAnnotations:annotations];
+}
+
+- (void)removeAllAnnotations
+{
+  __block NSMutableArray *anns = [NSMutableArray arrayWithCapacity:0];
+  [self.map.annotations enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    if ([obj isKindOfClass:[TCPointAnnotation class]]) {
+      [anns addObject:obj];
+    }
+  }];
+  [self.map removeAnnotations:anns];
+}
+
+- (NSArray *)annotations
+{
+  return self.map.annotations;
 }
 
 @end
