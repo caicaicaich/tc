@@ -76,11 +76,6 @@
         [self.loginViewModel.requestLoginCommand execute:nil];
         
     }];
-    
-  self.loginViewModel.phone = @"admin";
-  self.loginViewModel.password = @"1";
-  [self.loginViewModel.requestLoginCommand execute:nil];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {

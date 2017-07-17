@@ -25,13 +25,13 @@
                   symbolName = "__34-[LoginViewController viewDidLoad]_block_invoke.32"
                   moduleName = "SimpleApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cch/Desktop/hzt/SimpleApp/SimpleApp/Modules/Login/Controller/LoginViewController.m"
-                  timestampString = "521901088.54164"
+                  urlString = "file:///Users/cch/tc/SimpleApp/SimpleApp/Modules/Login/Controller/LoginViewController.m"
+                  timestampString = "522012977.500006"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "62"
                   endingLineNumber = "62"
-                  offsetFromSymbolStart = "204">
+                  offsetFromSymbolStart = "220">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -40,58 +40,58 @@
                   symbolName = "__34-[LoginViewController viewDidLoad]_block_invoke_2"
                   moduleName = "SimpleApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cch/Desktop/hzt/SimpleApp/SimpleApp/Modules/Login/Controller/LoginViewController.m"
-                  timestampString = "521901088.544777"
+                  urlString = "file:///Users/cch/tc/SimpleApp/SimpleApp/Modules/Login/Controller/LoginViewController.m"
+                  timestampString = "522012977.502267"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "62"
                   endingLineNumber = "62"
-                  offsetFromSymbolStart = "263">
+                  offsetFromSymbolStart = "284">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.48"
+                  symbolName = "__copy_helper_block_.45"
                   moduleName = "SimpleApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cch/Desktop/hzt/SimpleApp/SimpleApp/Modules/Login/Controller/LoginViewController.m"
-                  timestampString = "521901088.547536"
+                  urlString = "file:///Users/cch/tc/SimpleApp/SimpleApp/Modules/Login/Controller/LoginViewController.m"
+                  timestampString = "522012977.504558"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "62"
                   endingLineNumber = "62"
-                  offsetFromSymbolStart = "51">
+                  offsetFromSymbolStart = "64">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.49"
+                  symbolName = "__destroy_helper_block_.46"
                   moduleName = "SimpleApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cch/Desktop/hzt/SimpleApp/SimpleApp/Modules/Login/Controller/LoginViewController.m"
-                  timestampString = "521901088.550162"
+                  urlString = "file:///Users/cch/tc/SimpleApp/SimpleApp/Modules/Login/Controller/LoginViewController.m"
+                  timestampString = "522012977.507716"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "62"
                   endingLineNumber = "62"
-                  offsetFromSymbolStart = "29">
+                  offsetFromSymbolStart = "36">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__34-[LoginViewController viewDidLoad]_block_invoke.52"
+                  symbolName = "__34-[LoginViewController viewDidLoad]_block_invoke.49"
                   moduleName = "SimpleApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cch/Desktop/hzt/SimpleApp/SimpleApp/Modules/Login/Controller/LoginViewController.m"
-                  timestampString = "521901088.552828"
+                  urlString = "file:///Users/cch/tc/SimpleApp/SimpleApp/Modules/Login/Controller/LoginViewController.m"
+                  timestampString = "522012977.509862"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "62"
                   endingLineNumber = "62"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -199,6 +199,22 @@
             startingLineNumber = "17"
             endingLineNumber = "17"
             landmarkName = "-setValue:forKey:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimpleApp/Modules/Search/Controller/SearchViewController.m"
+            timestampString = "522012977.337111"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

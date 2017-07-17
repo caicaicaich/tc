@@ -29,6 +29,8 @@
  */
 + (LoginNetRespondBean *)latestLoginNetRespondBean;
 
++ (NSArray *)SearchHistory;
+
 
 /**
  * 判断是否已经显示过, 用户升级对话框了.
@@ -46,6 +48,8 @@
 
 
 #pragma mark - Set 方法群
+
++(void) setSearchHistory:(NSArray *) search;
 
 + (void)setFirstStartAppMark:(BOOL)isFirstStartApp;
 
