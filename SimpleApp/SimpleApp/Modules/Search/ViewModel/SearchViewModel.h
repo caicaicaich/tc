@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <ReactiveCocoa.h>
+@class Search;
 
 @interface SearchViewModel : NSObject
 
@@ -24,5 +25,12 @@
 @property (nonatomic, copy) NSString *longitude;
 
 @property (nonatomic, copy) NSString *latitude;
+
+@property (copy, readonly, nonatomic) NSArray <Search *> *searchArray;
+
+/**
+ *  是否是最后一条数据
+ */
+@property (assign, readonly, nonatomic) BOOL isLastPage;
 
 @end

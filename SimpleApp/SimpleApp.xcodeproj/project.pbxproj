@@ -31,6 +31,9 @@
 		5EE3F5B01F1B96A90016F096 /* SearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3F5AF1F1B96A90016F096 /* SearchViewModel.m */; };
 		A7BCD0F070309DEBAA5A48F7 /* libPods-SimpleApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE67D15F65328C093E6B513C /* libPods-SimpleApp.a */; };
 		C72362DF1F1C647800AFB066 /* LoginData.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362DE1F1C647800AFB066 /* LoginData.m */; };
+		C72362E31F1CBBAF00AFB066 /* RefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362E21F1CBBAF00AFB066 /* RefreshHeader.m */; };
+		C72362E61F1CBD5000AFB066 /* RefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362E51F1CBD5000AFB066 /* RefreshFooter.m */; };
+		C72362EA1F1CBEA300AFB066 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362E91F1CBEA300AFB066 /* UIScrollView+Refresh.m */; };
 		C75413501F1321D6009561B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C754134F1F1321D6009561B2 /* main.m */; };
 		C75413531F1321D6009561B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C75413521F1321D6009561B2 /* AppDelegate.m */; };
 		C75413561F1321D6009561B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C75413551F1321D6009561B2 /* ViewController.m */; };
@@ -131,6 +134,12 @@
 		BE67D15F65328C093E6B513C /* libPods-SimpleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimpleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72362DD1F1C647800AFB066 /* LoginData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginData.h; sourceTree = "<group>"; };
 		C72362DE1F1C647800AFB066 /* LoginData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginData.m; sourceTree = "<group>"; };
+		C72362E11F1CBBAF00AFB066 /* RefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshHeader.h; sourceTree = "<group>"; };
+		C72362E21F1CBBAF00AFB066 /* RefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshHeader.m; sourceTree = "<group>"; };
+		C72362E41F1CBD5000AFB066 /* RefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshFooter.h; sourceTree = "<group>"; };
+		C72362E51F1CBD5000AFB066 /* RefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshFooter.m; sourceTree = "<group>"; };
+		C72362E81F1CBEA300AFB066 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
+		C72362E91F1CBEA300AFB066 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
 		C754134B1F1321D6009561B2 /* SimpleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C754134F1F1321D6009561B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C75413511F1321D6009561B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -420,6 +429,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C72362E01F1CBB7B00AFB066 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				C72362E11F1CBBAF00AFB066 /* RefreshHeader.h */,
+				C72362E21F1CBBAF00AFB066 /* RefreshHeader.m */,
+				C72362E41F1CBD5000AFB066 /* RefreshFooter.h */,
+				C72362E51F1CBD5000AFB066 /* RefreshFooter.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		C72362E71F1CBE5100AFB066 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C72362E81F1CBEA300AFB066 /* UIScrollView+Refresh.h */,
+				C72362E91F1CBEA300AFB066 /* UIScrollView+Refresh.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C75413421F1321D6009561B2 = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +470,7 @@
 		C754134D1F1321D6009561B2 /* SimpleApp */ = {
 			isa = PBXGroup;
 			children = (
+				C72362E71F1CBE5100AFB066 /* Extensions */,
 				5EE3F56F1F1A36C60016F096 /* Modules */,
 				C773FA9F1F18B22F007BCE99 /* Define */,
 				C773FA9D1F18A2C0007BCE99 /* ThridParty */,
@@ -471,6 +501,7 @@
 		C773FA9D1F18A2C0007BCE99 /* ThridParty */ = {
 			isa = PBXGroup;
 			children = (
+				C72362E01F1CBB7B00AFB066 /* MJRefresh */,
 				C773FA9E1F18B16D007BCE99 /* Amap */,
 			);
 			path = ThridParty;
@@ -852,7 +883,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A1E35D68B791F61E20E4447A /* [CP] Copy Pods Resources */ = {
@@ -901,6 +932,7 @@
 				C7E2FD771F13898800ADFB7F /* ListNetRequestBean.m in Sources */,
 				C7A562471F147DD500B4FC58 /* GlobalDataCacheForDisk.m in Sources */,
 				C7E2FD581F1371B100ADFB7F /* HttpRequestHandleOfAFNetworkingOfNSURLSessionTask.m in Sources */,
+				C72362E61F1CBD5000AFB066 /* RefreshFooter.m in Sources */,
 				C7A562291F146C6A00B4FC58 /* CustomHttpHeaders.m in Sources */,
 				5EE3F5B01F1B96A90016F096 /* SearchViewModel.m in Sources */,
 				C7A562321F146F2100B4FC58 /* NetResponseRawEntityDataUnpack.m in Sources */,
@@ -934,6 +966,7 @@
 				C7E2FD6B1F13860100ADFB7F /* NetRequestHandleStub.m in Sources */,
 				5EE3F59C1F1B57C50016F096 /* SearchNetRespondBean.m in Sources */,
 				C7A562691F14C52D00B4FC58 /* LoginDomainBeanHelper.m in Sources */,
+				C72362E31F1CBBAF00AFB066 /* RefreshHeader.m in Sources */,
 				C7E2FD8A1F138E4B00ADFB7F /* AppDomainBeanStub.m in Sources */,
 				C7A562501F14811C00B4FC58 /* FirstMarkManage.m in Sources */,
 				C7A5625F1F14A87300B4FC58 /* EngineHelperSingleton.m in Sources */,
@@ -957,6 +990,7 @@
 				5EE3F59F1F1B58530016F096 /* Search.m in Sources */,
 				5EE3F5751F1A37820016F096 /* LoginViewController.m in Sources */,
 				C773FAA41F18C16C007BCE99 /* LoginManager.m in Sources */,
+				C72362EA1F1CBEA300AFB066 /* UIScrollView+Refresh.m in Sources */,
 				C7A5623B1F14778E00B4FC58 /* NSDictionary+Contain.m in Sources */,
 				C7A562411F147C2900B4FC58 /* SpliceFullUrlByDomainBeanSpecialPath.m in Sources */,
 				5EE3F5871F1B321E0016F096 /* IndexViewController.m in Sources */,

@@ -17,4 +17,5 @@ pod 'AMapLocation'
 pod 'AMapNavi'
 pod 'RNTimer'
 pod "RTRootNavigationController"
+pod 'MJRefresh'
 end

@@ -35,8 +35,8 @@
 @implementation IndexViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    @weakify(self)
+  [super viewDidLoad];
+  @weakify(self)
   
   self.locateCount = 0;
   
@@ -44,16 +44,16 @@
   
   [self configLocationManager];
   
-    //初始化地图
-    MAMapView *_mapView = [[MAMapView alloc] initWithFrame:self.mapParentView.bounds];
-    [self.mapParentView addSubview:_mapView];
+  //初始化地图
+  MAMapView *_mapView = [[MAMapView alloc] initWithFrame:self.mapParentView.bounds];
+  [self.mapParentView addSubview:_mapView];
+  
+  [[self.searchButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    @strongify(self)
+    SearchViewController *searchVC = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
+    [self.navigationController pushViewController:searchVC animated:YES];
     
-    [[self.searchButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self)
-        SearchViewController *searchVC = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
-        [self.navigationController pushViewController:searchVC animated:YES];
-        
-    }];
+  }];
   
   //定位
   [self.locationManager stopUpdatingLocation];
@@ -122,14 +122,14 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.rt_navigationController.navigationBar.hidden = YES;
-    self.navigationController.navigationBar.hidden = YES;
+  [super viewWillAppear:animated];
+  self.rt_navigationController.navigationBar.hidden = YES;
+  self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
 -(void)updateLocation:(CLLocation *)location regeocode:(AMapLocationReGeocode *)regeocode serial:(BOOL)isSerial {
@@ -166,13 +166,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
