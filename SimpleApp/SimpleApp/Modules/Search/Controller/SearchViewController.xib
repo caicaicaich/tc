@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController">
+            <connections>
+                <outlet property="searchButton" destination="Sea-1R-lrQ" id="h1t-h8-saT"/>
+                <outlet property="searchText" destination="9EG-Bc-o1q" id="Txz-Pb-Bow"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJp-6N-fp3">
+                    <rect key="frame" x="0.0" y="75" width="375" height="0.5"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="XqP-Ng-Dw2"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="想要去的地方" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9EG-Bc-o1q">
+                    <rect key="frame" x="15" y="30" width="290" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="cLQ-7d-z6p"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sea-1R-lrQ">
+                    <rect key="frame" x="320" y="30" width="40" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="7WD-ri-1Vr"/>
+                        <constraint firstAttribute="width" constant="40" id="o1V-RS-wmW"/>
+                    </constraints>
+                    <state key="normal" title="搜索"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Sea-1R-lrQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="2Cg-DZ-Gnc"/>
+                <constraint firstAttribute="trailing" secondItem="Sea-1R-lrQ" secondAttribute="trailing" constant="15" id="9H1-xk-RSc"/>
+                <constraint firstItem="Sea-1R-lrQ" firstAttribute="leading" secondItem="9EG-Bc-o1q" secondAttribute="trailing" constant="15" id="BZD-WG-ch8"/>
+                <constraint firstItem="NJp-6N-fp3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g7s-CP-BhC"/>
+                <constraint firstAttribute="trailing" secondItem="NJp-6N-fp3" secondAttribute="trailing" id="lJG-nj-nu8"/>
+                <constraint firstItem="NJp-6N-fp3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="lfs-cj-Scb"/>
+                <constraint firstItem="9EG-Bc-o1q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="loF-M1-KxK"/>
+                <constraint firstItem="9EG-Bc-o1q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="rAi-wx-6T0"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="52.5"/>
+        </view>
+    </objects>
+</document>

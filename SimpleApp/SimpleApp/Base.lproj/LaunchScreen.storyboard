@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="3by-9O-dbw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yingdaoye_bt" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-jr-PGT">
+                                <rect key="frame" x="57" y="292.5" width="261" height="22"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yingdaoye_logo" translatesAutoresizingMaskIntoConstraints="NO" id="geS-gC-h4o">
+                                <rect key="frame" x="139.5" y="96.5" width="96" height="96"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="万和共享停车" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veZ-Bb-NS3">
+                                <rect key="frame" x="114.5" y="208.5" width="146" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="geS-gC-h4o" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3jq-Vl-xnh"/>
+                            <constraint firstAttribute="trailing" secondItem="3by-9O-dbw" secondAttribute="trailing" id="Al7-4l-qpB"/>
+                            <constraint firstItem="3by-9O-dbw" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Dn1-Sf-ime"/>
+                            <constraint firstItem="3by-9O-dbw" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="JD1-Zx-Ua2"/>
+                            <constraint firstItem="IZ0-jr-PGT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Oj6-Zd-rEq"/>
+                            <constraint firstItem="IZ0-jr-PGT" firstAttribute="top" secondItem="veZ-Bb-NS3" secondAttribute="bottom" constant="55" id="Rjd-Uj-Qkh"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="3by-9O-dbw" secondAttribute="bottom" id="buS-g1-fEf"/>
+                            <constraint firstItem="veZ-Bb-NS3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cx4-gN-huo"/>
+                            <constraint firstItem="IZ0-jr-PGT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-30" id="jLx-t4-gAf"/>
+                            <constraint firstItem="IZ0-jr-PGT" firstAttribute="top" secondItem="geS-gC-h4o" secondAttribute="bottom" constant="100" id="mJA-wu-e4L"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LaunchImage" width="375" height="667"/>
+        <image name="yingdaoye_bt" width="261" height="22"/>
+        <image name="yingdaoye_logo" width="96" height="96"/>
+    </resources>
+</document>

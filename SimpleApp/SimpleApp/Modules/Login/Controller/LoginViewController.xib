@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+            <connections>
+                <outlet property="loginButton" destination="5xa-QS-tjv" id="x4Z-b8-YrW"/>
+                <outlet property="passwordText" destination="LEX-p9-ui9" id="vIC-LO-u9c"/>
+                <outlet property="phoneText" destination="MOy-tk-LzR" id="agF-Rt-yZF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LEX-p9-ui9">
+                    <rect key="frame" x="15" y="313.5" width="345" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Rae-ro-yjG"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MOy-tk-LzR">
+                    <rect key="frame" x="15" y="258.5" width="345" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="tpx-Kv-TKz"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xa-QS-tjv">
+                    <rect key="frame" x="15" y="388.5" width="345" height="40"/>
+                    <color key="backgroundColor" red="0.25882352941176467" green="0.52941176470588236" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="XWX-IR-Rvw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dengluye-logo" translatesAutoresizingMaskIntoConstraints="NO" id="HAl-BB-E2l">
+                    <rect key="frame" x="139" y="72.5" width="96" height="96"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="万合共享停车" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3Z-CB-tVP">
+                    <rect key="frame" x="114.5" y="179.5" width="146" height="29"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                    <color key="textColor" red="0.25882352939999997" green="0.52941176469999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="5xa-QS-tjv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="07j-te-mc8"/>
+                <constraint firstItem="LEX-p9-ui9" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="1Wy-pg-eZl"/>
+                <constraint firstAttribute="trailing" secondItem="LEX-p9-ui9" secondAttribute="trailing" constant="15" id="6aJ-rI-hBC"/>
+                <constraint firstItem="LEX-p9-ui9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="FY9-Tx-S5E"/>
+                <constraint firstItem="X3Z-CB-tVP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Fio-9z-2sG"/>
+                <constraint firstItem="5xa-QS-tjv" firstAttribute="top" secondItem="LEX-p9-ui9" secondAttribute="bottom" constant="35" id="WjE-3e-enE"/>
+                <constraint firstItem="5xa-QS-tjv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="X4F-vm-XPT"/>
+                <constraint firstItem="MOy-tk-LzR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Z4b-ss-J1Q"/>
+                <constraint firstItem="MOy-tk-LzR" firstAttribute="top" secondItem="X3Z-CB-tVP" secondAttribute="bottom" constant="50" id="ZPF-bD-GMa"/>
+                <constraint firstItem="MOy-tk-LzR" firstAttribute="top" secondItem="HAl-BB-E2l" secondAttribute="bottom" constant="90" id="hCq-nY-Jp2"/>
+                <constraint firstItem="LEX-p9-ui9" firstAttribute="top" secondItem="MOy-tk-LzR" secondAttribute="bottom" constant="15" id="m86-3u-Caz"/>
+                <constraint firstAttribute="trailing" secondItem="5xa-QS-tjv" secondAttribute="trailing" constant="15" id="mIE-DN-8zU"/>
+                <constraint firstItem="HAl-BB-E2l" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="q4i-br-gwu"/>
+                <constraint firstAttribute="trailing" secondItem="MOy-tk-LzR" secondAttribute="trailing" constant="15" id="zgF-vz-Pis"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="dengluye-logo" width="96" height="96"/>
+    </resources>
+</document>
