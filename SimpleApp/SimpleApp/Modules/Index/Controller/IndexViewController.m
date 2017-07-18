@@ -17,6 +17,10 @@
 #import "TCPointAnnotation.h"
 #import "UserPointAnnotation.h"
 #import "SearchViewController.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "GDNavigationViewController.h"
+#import <AMapNaviKit/AMapNaviKit.h>
+#import "NearByViewController.h"
 
 #define DefaultLocationTimeout 10
 #define DefaultReGeocodeTimeout 5
@@ -34,6 +38,10 @@
 
 @property (nonatomic, strong) UIButton *searchBottomBar;
 
+@property (nonatomic, assign) double latitude;
+
+@property (nonatomic, assign) double longitude;
+
 @end
 
 @implementation IndexViewController
@@ -41,8 +49,10 @@
 - (void)viewDidLoad {
   
   [super viewDidLoad];
-  
+
   [self configLocationList];
+  self.longitude = 0.0;
+  self.latitude = 0.0;
   [self configMapView];
   [self configSearchButton];
   [self configSearchBottomBar];
@@ -90,6 +100,20 @@
   [self.view addSubview:self.locationListView];
   
   @weakify(self);
+  self.locationListView.click = ^(double longitude, double latitude) {
+      @strongify(self)
+      if (self.longitude == 0.0f && self.latitude == 0.0f) {
+          return;
+      }
+      GDNavigationViewController *GDNavVC = [[GDNavigationViewController alloc] init];
+      AMapNaviPoint *startPoint = [AMapNaviPoint locationWithLatitude:self.latitude longitude:self.longitude];
+      AMapNaviPoint *endPoint = [AMapNaviPoint locationWithLatitude:latitude longitude:longitude];
+      GDNavVC.startPoint = startPoint;
+      GDNavVC.endPoint = endPoint;
+      [self.navigationController  pushViewController:GDNavVC animated:YES];
+  };
+    
+    
   [self.locationListView mas_makeConstraints:^(MASConstraintMaker *make) {
     @strongify(self);
     make.bottom.left.right.equalTo(self.view);
@@ -166,6 +190,7 @@
   [self.locationButton addTarget:self action:@selector(locationAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
+
 - (void)configSearchBottomBar
 {
   self.searchBottomBar = [[UIButton alloc] init];
@@ -181,16 +206,44 @@
     make.height.mas_equalTo(55);
   }];
   
-  [self.searchBottomBar addTarget:self action:@selector(searchController) forControlEvents:UIControlEventTouchUpInside];
+  [self.searchBottomBar addTarget:self action:@selector(nearByController) forControlEvents:UIControlEventTouchUpInside];
+
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  self.rt_navigationController.navigationBar.hidden = YES;
+  self.navigationController.navigationBar.hidden = YES;
+  self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
+  self.fd_interactivePopDisabled = YES;
+  self.rt_navigationController.fd_fullscreenPopGestureRecognizer.enabled = NO;
 }
 
 #pragma mark - action
 
 - (void)searchController
 {
-  SearchViewController *search = [[SearchViewController alloc] init];
+    if (self.longitude == 0.0f && self.latitude == 0.0f) {
+        return;
+    }
+  SearchViewController *search = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
+  search.latitude = self.latitude;
+  search.longitude = self.longitude;
   [self.navigationController pushViewController:search animated:YES];
 }
+
+- (void)nearByController
+{
+    if (self.longitude == 0.0f && self.latitude == 0.0f) {
+        return;
+    }
+    NearByViewController *nearByVC = [[NearByViewController alloc] initWithNibName:@"NearByViewController" bundle:nil];
+    nearByVC.latitude = self.latitude;
+    nearByVC.longitude = self.longitude;
+    [self.navigationController pushViewController:nearByVC animated:YES];
+}
+
 - (void)locationAction
 {
   [self.mapView locationOnce];
@@ -218,15 +271,12 @@
 
 - (void)tcMapViewLocationFinished:(TCMapView *)mapview location:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)reGeocode
 {
-  
+  CLLocationCoordinate2D coordinate=location.coordinate;
+  self.longitude = coordinate.longitude;
+  self.latitude = coordinate.latitude;
   [self.locationListView requestLocationList:location reGeocode:reGeocode];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
-  self.rt_navigationController.navigationBar.hidden = YES;
-  self.navigationController.navigationBar.hidden = YES;
-}
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];

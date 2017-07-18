@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,7 +20,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shousuo_weizhi" translatesAutoresizingMaskIntoConstraints="NO" id="3Jc-7E-0fY">
-                        <rect key="frame" x="15" y="29.5" width="11" height="15"/>
+                        <rect key="frame" x="15" y="30" width="11" height="15"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shousuo_qianwang" translatesAutoresizingMaskIntoConstraints="NO" id="FvA-Vh-GGE">
+                        <rect key="frame" x="290" y="29" width="15" height="15"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目的地" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T55-TJ-nEV">
                         <rect key="frame" x="41" y="15" width="52" height="21"/>
@@ -27,27 +31,34 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shousuo_qianwang" translatesAutoresizingMaskIntoConstraints="NO" id="FvA-Vh-GGE">
-                        <rect key="frame" x="290" y="29.5" width="15" height="15"/>
-                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAn-xD-3w4">
+                        <rect key="frame" x="23" y="73" width="297" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="IRg-EQ-wAN"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="描述" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCL-3r-puQ">
-                        <rect key="frame" x="41" y="42.5" width="27" height="16"/>
+                        <rect key="frame" x="41" y="46" width="27" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="MCL-3r-puQ" secondAttribute="bottom" constant="15" id="1hH-u8-kDp"/>
+                    <constraint firstAttribute="trailing" secondItem="NAn-xD-3w4" secondAttribute="trailing" id="CBi-Iw-RxF"/>
                     <constraint firstItem="T55-TJ-nEV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="CM7-Eg-dRx"/>
-                    <constraint firstItem="FvA-Vh-GGE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MCL-3r-puQ" secondAttribute="trailing" constant="15" id="EeB-bD-Z48"/>
+                    <constraint firstAttribute="bottom" secondItem="NAn-xD-3w4" secondAttribute="bottom" id="Dfn-7T-EV6"/>
+                    <constraint firstItem="MCL-3r-puQ" firstAttribute="top" secondItem="T55-TJ-nEV" secondAttribute="bottom" constant="10" id="F9d-b2-GDb"/>
                     <constraint firstAttribute="trailing" secondItem="FvA-Vh-GGE" secondAttribute="trailing" constant="15" id="Gfn-fd-ioo"/>
                     <constraint firstItem="3Jc-7E-0fY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Ke4-Nz-okp"/>
                     <constraint firstItem="T55-TJ-nEV" firstAttribute="leading" secondItem="3Jc-7E-0fY" secondAttribute="trailing" constant="15" id="Mbz-WL-287"/>
                     <constraint firstItem="3Jc-7E-0fY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZKO-lg-hMr"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MCL-3r-puQ" secondAttribute="trailing" constant="45" id="aof-lR-APy"/>
                     <constraint firstItem="MCL-3r-puQ" firstAttribute="leading" secondItem="T55-TJ-nEV" secondAttribute="leading" id="gnx-GA-6PC"/>
                     <constraint firstItem="FvA-Vh-GGE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="noF-jT-PXv"/>
-                    <constraint firstItem="FvA-Vh-GGE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="T55-TJ-nEV" secondAttribute="trailing" constant="15" id="ozB-Pt-AsJ"/>
+                    <constraint firstItem="NAn-xD-3w4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="oLc-al-4Qs"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="T55-TJ-nEV" secondAttribute="trailing" constant="45" id="rQn-4y-gWy"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

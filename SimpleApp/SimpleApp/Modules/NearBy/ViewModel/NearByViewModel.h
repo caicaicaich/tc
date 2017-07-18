@@ -1,8 +1,8 @@
 //
-//  SearchViewModel.h
+//  NearByViewModel.h
 //  SimpleApp
 //
-//  Created by 蔡朝洪 on 2017/7/16.
+//  Created by 蔡朝洪 on 2017/7/18.
 //  Copyright © 2017年 leqoqo. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import <ReactiveCocoa.h>
 @class Search;
 
-@interface SearchViewModel : NSObject
+@interface NearByViewModel : NSObject
 
 @property (nonatomic, readonly, strong) RACCommand *requestSearchCommand;
 
@@ -19,8 +19,6 @@
 @property (nonatomic, copy) NSString *name;
 
 @property (nonatomic, assign) NSInteger pageNO;
-
-//@property (nonatomic, assign) NSInteger pageSize;
 
 @property (nonatomic, copy) NSString *longitude;
 

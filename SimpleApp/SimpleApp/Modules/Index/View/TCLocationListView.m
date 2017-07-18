@@ -76,6 +76,16 @@
   return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Search *search = [self.viewModel.locationList objectAtIndex:indexPath.row];
+    if (search == nil) return;
+    if (self.click != nil) {
+        self.click(search.longitude, search.latitude);
+    }
+    
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   return 100;

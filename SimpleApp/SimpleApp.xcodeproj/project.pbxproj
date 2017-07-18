@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5E2B2C011F19B2250044DCD6 /* SimpleNetworkEngine+RACSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B2C001F19B2250044DCD6 /* SimpleNetworkEngine+RACSupport.m */; };
 		5E2B2C041F19BD940044DCD6 /* HeartbeatManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B2C031F19BD940044DCD6 /* HeartbeatManage.m */; };
+		5E782D641F1D3E0300F1A1CB /* NearByViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E782D611F1D3E0300F1A1CB /* NearByViewController.m */; };
+		5E782D651F1D3E0300F1A1CB /* NearByViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E782D631F1D3E0300F1A1CB /* NearByViewController.xib */; };
+		5E782D681F1D3E1D00F1A1CB /* NearByViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E782D671F1D3E1D00F1A1CB /* NearByViewModel.m */; };
 		5EE3F56E1F1A16CE0016F096 /* PRPDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3F56D1F1A16CE0016F096 /* PRPDebug.m */; };
 		5EE3F5751F1A37820016F096 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3F5731F1A37820016F096 /* LoginViewController.m */; };
 		5EE3F5761F1A37820016F096 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE3F5741F1A37820016F096 /* LoginViewController.xib */; };
@@ -33,6 +36,9 @@
 		C72362E31F1CBBAF00AFB066 /* RefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362E21F1CBBAF00AFB066 /* RefreshHeader.m */; };
 		C72362E61F1CBD5000AFB066 /* RefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362E51F1CBD5000AFB066 /* RefreshFooter.m */; };
 		C72362EA1F1CBEA300AFB066 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362E91F1CBEA300AFB066 /* UIScrollView+Refresh.m */; };
+		C72362F11F1CD04400AFB066 /* GDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362EF1F1CD04400AFB066 /* GDNavigationViewController.m */; };
+		C72362F21F1CD04400AFB066 /* GDNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C72362F01F1CD04400AFB066 /* GDNavigationViewController.xib */; };
+		C72362F61F1CD8A000AFB066 /* SpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = C72362F51F1CD8A000AFB066 /* SpeechSynthesizer.m */; };
 		C75413501F1321D6009561B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C754134F1F1321D6009561B2 /* main.m */; };
 		C75413531F1321D6009561B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C75413521F1321D6009561B2 /* AppDelegate.m */; };
 		C75413561F1321D6009561B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C75413551F1321D6009561B2 /* ViewController.m */; };
@@ -102,6 +108,11 @@
 		5E2B2C001F19B2250044DCD6 /* SimpleNetworkEngine+RACSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SimpleNetworkEngine+RACSupport.m"; sourceTree = "<group>"; };
 		5E2B2C021F19BD940044DCD6 /* HeartbeatManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartbeatManage.h; sourceTree = "<group>"; };
 		5E2B2C031F19BD940044DCD6 /* HeartbeatManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartbeatManage.m; sourceTree = "<group>"; };
+		5E782D611F1D3E0300F1A1CB /* NearByViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearByViewController.m; sourceTree = "<group>"; };
+		5E782D621F1D3E0300F1A1CB /* NearByViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearByViewController.h; sourceTree = "<group>"; };
+		5E782D631F1D3E0300F1A1CB /* NearByViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearByViewController.xib; sourceTree = "<group>"; };
+		5E782D661F1D3E1D00F1A1CB /* NearByViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearByViewModel.h; sourceTree = "<group>"; };
+		5E782D671F1D3E1D00F1A1CB /* NearByViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearByViewModel.m; sourceTree = "<group>"; };
 		5EE3F56C1F1A16CE0016F096 /* PRPDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRPDebug.h; sourceTree = "<group>"; };
 		5EE3F56D1F1A16CE0016F096 /* PRPDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRPDebug.m; sourceTree = "<group>"; };
 		5EE3F5721F1A37820016F096 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -146,6 +157,11 @@
 		C72362E51F1CBD5000AFB066 /* RefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshFooter.m; sourceTree = "<group>"; };
 		C72362E81F1CBEA300AFB066 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
 		C72362E91F1CBEA300AFB066 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
+		C72362EE1F1CD04400AFB066 /* GDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDNavigationViewController.h; sourceTree = "<group>"; };
+		C72362EF1F1CD04400AFB066 /* GDNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDNavigationViewController.m; sourceTree = "<group>"; };
+		C72362F01F1CD04400AFB066 /* GDNavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDNavigationViewController.xib; sourceTree = "<group>"; };
+		C72362F41F1CD8A000AFB066 /* SpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechSynthesizer.h; sourceTree = "<group>"; };
+		C72362F51F1CD8A000AFB066 /* SpeechSynthesizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechSynthesizer.m; sourceTree = "<group>"; };
 		C754134B1F1321D6009561B2 /* SimpleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C754134F1F1321D6009561B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C75413511F1321D6009561B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -300,9 +316,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E782D591F1D3D1B00F1A1CB /* NearBy */ = {
+			isa = PBXGroup;
+			children = (
+				5E782D5A1F1D3D1B00F1A1CB /* Controller */,
+				5E782D5B1F1D3D1B00F1A1CB /* ViewModel */,
+			);
+			path = NearBy;
+			sourceTree = "<group>";
+		};
+		5E782D5A1F1D3D1B00F1A1CB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5E782D611F1D3E0300F1A1CB /* NearByViewController.m */,
+				5E782D621F1D3E0300F1A1CB /* NearByViewController.h */,
+				5E782D631F1D3E0300F1A1CB /* NearByViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5E782D5B1F1D3D1B00F1A1CB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5E782D661F1D3E1D00F1A1CB /* NearByViewModel.h */,
+				5E782D671F1D3E1D00F1A1CB /* NearByViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5EE3F56F1F1A36C60016F096 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5E782D591F1D3D1B00F1A1CB /* NearBy */,
+				C72362EB1F1CCFFD00AFB066 /* navigation */,
 				5EE3F57E1F1B188D0016F096 /* Index */,
 				5EE3F5811F1B188D0016F096 /* Search */,
 				5EE3F5701F1A36C60016F096 /* Login */,
@@ -463,6 +509,41 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C72362EB1F1CCFFD00AFB066 /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				C72362EC1F1CCFFD00AFB066 /* Controller */,
+				C72362ED1F1CCFFD00AFB066 /* ViewModel */,
+			);
+			path = navigation;
+			sourceTree = "<group>";
+		};
+		C72362EC1F1CCFFD00AFB066 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C72362EE1F1CD04400AFB066 /* GDNavigationViewController.h */,
+				C72362EF1F1CD04400AFB066 /* GDNavigationViewController.m */,
+				C72362F01F1CD04400AFB066 /* GDNavigationViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C72362ED1F1CCFFD00AFB066 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C72362F31F1CD8A000AFB066 /* SpeechSynthesizer */ = {
+			isa = PBXGroup;
+			children = (
+				C72362F41F1CD8A000AFB066 /* SpeechSynthesizer.h */,
+				C72362F51F1CD8A000AFB066 /* SpeechSynthesizer.m */,
+			);
+			path = SpeechSynthesizer;
+			sourceTree = "<group>";
+		};
 		C75413421F1321D6009561B2 = {
 			isa = PBXGroup;
 			children = (
@@ -524,6 +605,7 @@
 		C773FA9E1F18B16D007BCE99 /* Amap */ = {
 			isa = PBXGroup;
 			children = (
+				C72362F31F1CD8A000AFB066 /* SpeechSynthesizer */,
 			);
 			path = Amap;
 			sourceTree = "<group>";
@@ -873,7 +955,7 @@
 				TargetAttributes = {
 					C754134A1F1321D6009561B2 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 7524R5UJ2G;
+						DevelopmentTeam = VSK7A5A3W7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -901,9 +983,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72362F21F1CD04400AFB066 /* GDNavigationViewController.xib in Resources */,
 				5EE3F5761F1A37820016F096 /* LoginViewController.xib in Resources */,
 				5EE3F5A71F1B77440016F096 /* SearchViewController.xib in Resources */,
 				E55E375E1F1CC1DC005CD2B7 /* TCLocationCell.xib in Resources */,
+				5E782D651F1D3E0300F1A1CB /* NearByViewController.xib in Resources */,
 				C754135E1F1321D6009561B2 /* LaunchScreen.storyboard in Resources */,
 				5EE3F5AD1F1B779A0016F096 /* SearchTableViewCell.xib in Resources */,
 				C754135B1F1321D6009561B2 /* Assets.xcassets in Resources */,
@@ -926,7 +1010,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A1E35D68B791F61E20E4447A /* [CP] Copy Pods Resources */ = {
@@ -977,6 +1061,7 @@
 				C7A562531F1482FB00B4FC58 /* LocalCacheDataPathConstant.m in Sources */,
 				C7E2FD771F13898800ADFB7F /* ListNetRequestBean.m in Sources */,
 				C7A562471F147DD500B4FC58 /* GlobalDataCacheForDisk.m in Sources */,
+				C72362F11F1CD04400AFB066 /* GDNavigationViewController.m in Sources */,
 				C7E2FD581F1371B100ADFB7F /* HttpRequestHandleOfAFNetworkingOfNSURLSessionTask.m in Sources */,
 				C72362E61F1CBD5000AFB066 /* RefreshFooter.m in Sources */,
 				C7A562291F146C6A00B4FC58 /* CustomHttpHeaders.m in Sources */,
@@ -994,6 +1079,7 @@
 				C7A5626F1F14CC4B00B4FC58 /* LoginParseDomainBeanToDD.m in Sources */,
 				E55E37591F1CB5C2005CD2B7 /* TCIndexSearchBar.m in Sources */,
 				C7E2FD381F13550400ADFB7F /* UploadFileMIMETypeTools.m in Sources */,
+				C72362F61F1CD8A000AFB066 /* SpeechSynthesizer.m in Sources */,
 				C7E2FD641F13835700ADFB7F /* DomainBeanStub.m in Sources */,
 				C7A562441F147D4400B4FC58 /* CacheManageSingleton.m in Sources */,
 				C75413561F1321D6009561B2 /* ViewController.m in Sources */,
@@ -1011,6 +1097,7 @@
 				5EE3F5AC1F1B779A0016F096 /* SearchTableViewCell.m in Sources */,
 				C75413501F1321D6009561B2 /* main.m in Sources */,
 				E55E37641F1CD90A005CD2B7 /* TCPointAnnotation.m in Sources */,
+				5E782D681F1D3E1D00F1A1CB /* NearByViewModel.m in Sources */,
 				C7E2FD3E1F135EC300ADFB7F /* HttpEngineOfAFNetworking.m in Sources */,
 				C7E2FD6B1F13860100ADFB7F /* NetRequestHandleStub.m in Sources */,
 				5EE3F59C1F1B57C50016F096 /* SearchNetRespondBean.m in Sources */,
@@ -1037,6 +1124,7 @@
 				C7A562381F14713000B4FC58 /* ProjectHelper.m in Sources */,
 				C7E2FD6E1F1387EA00ADFB7F /* UploadFileInfoFromServer.m in Sources */,
 				5EE3F59F1F1B58530016F096 /* Search.m in Sources */,
+				5E782D641F1D3E0300F1A1CB /* NearByViewController.m in Sources */,
 				E55E37671F1CDBA6005CD2B7 /* UserPointAnnotation.m in Sources */,
 				5EE3F5751F1A37820016F096 /* LoginViewController.m in Sources */,
 				C773FAA41F18C16C007BCE99 /* LoginManager.m in Sources */,
@@ -1165,7 +1253,7 @@
 			baseConfigurationReference = 05D50CD2EBAF90C9FB6594CC /* Pods-SimpleApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7524R5UJ2G;
+				DEVELOPMENT_TEAM = VSK7A5A3W7;
 				INFOPLIST_FILE = SimpleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zandama.SimpleApp;
@@ -1178,7 +1266,7 @@
 			baseConfigurationReference = F1BC67BDF62A14338777315D /* Pods-SimpleApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7524R5UJ2G;
+				DEVELOPMENT_TEAM = VSK7A5A3W7;
 				INFOPLIST_FILE = SimpleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zandama.SimpleApp;

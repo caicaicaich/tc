@@ -10,6 +10,7 @@
 #import "SimpleObjectSerialization.h"
 #import "LocalCacheDataPathConstant.h"
 #import "ProjectHelper.h"
+#import "NSString+isEmpty.h"
 
 
 @implementation GlobalDataCacheForDisk
@@ -35,6 +36,8 @@ static NSString *const kCacheDataNameEnum_IsNotFirstEnterMainActivity = @"IsNotF
 
 // 记录是否已经显示过用户升级对话框了
 static NSString *const kCacheDataNameEnum_IsShowedUserUpgradeDialog = @"IsShowedUserUpgradeDialog";
+
+static NSString *const kCacheDataNameEnum_SearchHistory = @"SearchHistory";
 
 #pragma mark -
 
@@ -138,6 +141,11 @@ static void SerializeObject(id object, NSString *key) {
   return [userDefaults boolForKey:kCacheDataNameEnum_IsNotFirstEnterMainActivity];
 }
 
++ (NSArray *)SearchHistory {
+    NSUserDefaults *userDeafults = [NSUserDefaults standardUserDefaults];
+    return [userDeafults arrayForKey:kCacheDataNameEnum_SearchHistory];
+}
+
 
 #pragma mark -
 #pragma mark - Set 方法群
@@ -154,6 +162,11 @@ static void SerializeObject(id object, NSString *key) {
 + (void)setNotFirstEnterMainActivityMark:(BOOL)isNotFirstEnterMainActivity {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   [userDefaults setBool:isNotFirstEnterMainActivity forKey:kCacheDataNameEnum_IsNotFirstEnterMainActivity];
+}
+
++ (void)setSearchHistory:(NSArray *)search {
+    NSUserDefaults *userDeaults = [NSUserDefaults standardUserDefaults];
+    [userDeaults setObject:search forKey:kCacheDataNameEnum_SearchHistory];
 }
 
 @end
