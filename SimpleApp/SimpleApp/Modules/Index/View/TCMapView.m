@@ -111,6 +111,7 @@
     annotationView.animatesDrop = NO;        //设置标注动画显示，默认为NO
     annotationView.draggable = NO;        //设置标注可以拖动，默认为NO
     annotationView.image = [UIImage imageNamed:@"shouye_weizhi"];
+    annotationView.centerOffset = CGPointMake(0, -33.5);
     return annotationView;
   }
   return nil;
@@ -282,28 +283,6 @@
 {
   [super didMoveToSuperview];
   [self configLocationManager];
-  __weak typeof(self) ws = self;
-  [self requestLocationWithReGeocode:YES
-                     completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
-                       if (error) return;
-                       
-                       if (ws.userPointAnnotaiton) {
-                         [ws.map removeAnnotation:ws.userPointAnnotaiton];
-                         ws.userPointAnnotaiton = nil;
-                       }
-                       
-                       ws.userPointAnnotaiton = [[UserPointAnnotation alloc] init];
-                       [ws.userPointAnnotaiton setCoordinate:location.coordinate];
-                       [ws.map addAnnotation:ws.userPointAnnotaiton];
-                       [ws.userPointAnnotaiton setCoordinate:location.coordinate];
-                       
-                       [ws updateLocation:location regeocode:regeocode serial:YES];
-                       [ws.map setCenterCoordinate:location.coordinate animated:YES];
-                       [ws.map setZoomLevel:15.1 animated:YES];
-                       if (ws.delegate && [ws.delegate respondsToSelector:@selector(tcMapViewLocationFinished:location:reGeocode:)]) {
-                         [ws.delegate tcMapViewLocationFinished:ws location:location reGeocode:regeocode];
-                       }
-                     }];
 }
 
 - (void)layoutSubviews
@@ -317,7 +296,7 @@
 - (void)locationOnce
 {
   __weak typeof(self) ws = self;
-  [self requestLocationWithReGeocode:YES
+  [self requestLocationWithReGeocode:NO
                      completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
                        if (error) return;
                        

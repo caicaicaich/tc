@@ -42,12 +42,18 @@
   
   [super viewDidLoad];
   
+  [self configLocationList];
   [self configMapView];
   [self configSearchButton];
   [self configSearchBottomBar];
-  [self configLocationList];
   [self configLocationButton];
   
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+  [super viewDidAppear:animated];
+  [self.mapView locationOnce];
 }
 
 #pragma mark - config ui
@@ -56,8 +62,15 @@
 {
   self.mapView = [[TCMapView alloc] initWithFrame:CGRectZero];
   self.mapView.delegate = self;
-  self.mapView.frame = [UIScreen mainScreen].bounds;
+  //self.mapView.frame = [UIScreen mainScreen].bounds;
   [self.view addSubview:self.mapView];
+  
+  @weakify(self);
+  [self.mapView mas_makeConstraints:^(MASConstraintMaker *make) {
+    @strongify(self);
+    make.top.left.right.equalTo(self.view);
+    make.bottom.equalTo(self.locationListView.mas_top);
+  }];
 }
 
 - (void)configSearchButton
@@ -205,6 +218,7 @@
 
 - (void)tcMapViewLocationFinished:(TCMapView *)mapview location:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)reGeocode
 {
+  
   [self.locationListView requestLocationList:location reGeocode:reGeocode];
 }
 
