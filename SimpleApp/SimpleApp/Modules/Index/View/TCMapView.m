@@ -295,7 +295,9 @@
 
 - (void)locationOnce
 {
-  __weak typeof(self) ws = self;
+  //__weak typeof(self) ws = self;
+  [self startUpdatingLocation];
+  /**
   [self requestLocationWithReGeocode:NO
                      completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
                        if (error) return;
@@ -318,6 +320,7 @@
                        }
                        
                      }];
+   */
 }
 
 - (void)addAnnotation:(id <MAAnnotation>)annotation

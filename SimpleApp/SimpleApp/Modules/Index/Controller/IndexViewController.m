@@ -51,13 +51,14 @@
   [super viewDidLoad];
 
   [self configLocationList];
-  self.longitude = 0.0;
-  self.latitude = 0.0;
   [self configMapView];
   [self configSearchButton];
   [self configSearchBottomBar];
   [self configLocationButton];
+  [self.view bringSubviewToFront:self.locationListView];
   
+  self.longitude = 0.0;
+  self.latitude = 0.0;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -72,14 +73,14 @@
 {
   self.mapView = [[TCMapView alloc] initWithFrame:CGRectZero];
   self.mapView.delegate = self;
-  //self.mapView.frame = [UIScreen mainScreen].bounds;
+  
   [self.view addSubview:self.mapView];
   
   @weakify(self);
   [self.mapView mas_makeConstraints:^(MASConstraintMaker *make) {
     @strongify(self);
     make.top.left.right.equalTo(self.view);
-    make.bottom.equalTo(self.locationListView.mas_top);
+    make.bottom.equalTo(self.locationListView.mas_top).offset(-55);
   }];
 }
 
@@ -132,6 +133,10 @@
           @strongify(self);
           make.bottom.equalTo(self.locationListView.mas_top).offset(-75);
         }];
+        [self.mapView mas_updateConstraints:^(MASConstraintMaker *make) {
+          @strongify(self);
+          make.bottom.equalTo(self.locationListView.mas_top).offset(-55);
+        }];
       }else{
         if (self.locationListView.locationCount > 3) {
           [self.locationListView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -150,6 +155,10 @@
             make.bottom.equalTo(self.locationListView.mas_top).offset(-20);
           }];
         }
+        [self.mapView mas_updateConstraints:^(MASConstraintMaker *make) {
+          @strongify(self);
+          make.bottom.equalTo(self.locationListView.mas_top);
+        }];
       }
       [self.view layoutIfNeeded];
     }];
@@ -263,6 +272,10 @@
       [self.locationButton mas_updateConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.bottom.equalTo(self.locationListView.mas_top).offset(-75);
+      }];
+      [self.mapView mas_updateConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.bottom.equalTo(self.locationListView.mas_top).offset(-55);
       }];
       [self.view layoutIfNeeded];
     }];
